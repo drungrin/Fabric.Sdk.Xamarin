@@ -1,41 +1,108 @@
 ﻿<metadata>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AbstractAppSpiCall']" name="visibility">public</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/interface[@name='AppSpiCall']" name="visibility">public</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AppIconSettingsData']" name="visibility">public</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityAsyncTask']/method[@name='getDependencies']" name="return">java.util.Collection</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityFutureTask']/method[@name='getDependencies']" name="return">java.util.Collection</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityTask']/method[@name='getDependencies']" name="return">java.util.Collection</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='Crash.FatalException']" name="static">false</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='Crash.LoggedException']" name="static">false</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='int']]" name="visibility">protected</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='int']]" name="name">makeTextNative</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.CharSequence'] and parameter[3][@type='int']]" name="visibility">protected</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.CharSequence'] and parameter[3][@type='int']]" name="name">makeTextNative</attr>
-    <!-- Const Renames -->
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_BYTE_SIZE_PER_FILE']" name="name">DEFAULT_MAX_BYTE_SIZE_PER_FILE</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_FILES_IN_BATCH']" name="name">DEFAULT_MAX_FILES_IN_BATCH</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_FILES_TO_KEEP']" name="name">DEFAULT_MAX_FILES_TO_KEEP</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='ROLL_OVER_FILE_NAME_SEPARATOR']" name="name">DEFAULT_ROLL_OVER_FILE_NAME_SEPARATOR</attr>
-    <!-- Class Renames -->
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='Settings']" name="managedName">FabricSettings</attr>
-    <!-- Change Parameter Types -->
-    <attr path="/api/package[@name='io.fabric.sdk.android']/class[@name='Kit']/method[@name='compareTo']/parameter[@type='io.fabric.sdk.android.Kit']" name="type">java.lang.Object</attr>
-    <!-- Removals -->
-    <remove-node path="//*[@deprecated='deprecated']" />
-    <remove-node path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/interface[@name='DependsOn']" />
-    <remove-node path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='AsyncTask.SerialExecutor']" />
-    <remove-node path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='AsyncTask.SerialExecutor.1']" />
-    <!-- Field Removals -->
-    <remove-node path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='lastRollOverTime']" />
-    <remove-node path="/api/package[@name='io.fabric.sdk.android.services.network']/class[@name='HttpRequest']/field[@name='url']" />
-    <!-- Namespaces -->
-    <attr path="/api/package[@name='io.fabric.sdk.android']" name="managedName">Fabric.Sdk.Bindings</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.cache']" name="managedName">Fabric.Sdk.Bindings.Services.Cache</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.common']" name="managedName">Fabric.Sdk.Bindings.Services.Common</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']" name="managedName">Fabric.Sdk.Bindings.Services.Concurrency</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency.internal']" name="managedName">Fabric.Bindings.Sdk.Services.Concurrency.Internal</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.events']" name="managedName">Fabric.Sdk.Bindings.Services.Events</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.network']" name="managedName">Fabric.Sdk.Bindings.Services.Network</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.persistence']" name="managedName">Fabric.Sdk.Bindings.Services.Persistence</attr>
-    <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']" name="managedName">Fabric.Sdk.Bindings.Services.Settings</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AbstractAppSpiCall']"
+        name="visibility">
+    public
+  </attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/interface[@name='AppSpiCall']"
+        name="visibility">
+    public
+  </attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='AppIconSettingsData']"
+        name="visibility">
+    public
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityAsyncTask']/method[@name='getDependencies']"
+    name="return">
+    java.util.Collection
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityFutureTask']/method[@name='getDependencies']"
+    name="return">
+    java.util.Collection
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='PriorityTask']/method[@name='getDependencies']"
+    name="return">
+    java.util.Collection
+  </attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='Crash.FatalException']"
+        name="static">
+    false
+  </attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='Crash.LoggedException']"
+        name="static">
+    false
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+    name="visibility">
+    protected
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+    name="name">
+    makeTextNative
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.CharSequence'] and parameter[3][@type='int']]"
+    name="visibility">
+    protected
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.CharSequence'] and parameter[3][@type='int']]"
+    name="name">
+    makeTextNative
+  </attr>
+  <!-- Const Renames -->
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_BYTE_SIZE_PER_FILE']"
+    name="name">
+    DEFAULT_MAX_BYTE_SIZE_PER_FILE
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_FILES_IN_BATCH']"
+    name="name">
+    DEFAULT_MAX_FILES_IN_BATCH
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='MAX_FILES_TO_KEEP']"
+    name="name">
+    DEFAULT_MAX_FILES_TO_KEEP
+  </attr>
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='ROLL_OVER_FILE_NAME_SEPARATOR']"
+    name="name">
+    DEFAULT_ROLL_OVER_FILE_NAME_SEPARATOR
+  </attr>
+  <!-- Class Renames -->
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']/class[@name='Settings']" name="managedName">FabricSettings</attr>
+  <!-- Change Parameter Types -->
+  <attr
+    path="/api/package[@name='io.fabric.sdk.android']/class[@name='Kit']/method[@name='compareTo']/parameter[@type='io.fabric.sdk.android.Kit']"
+    name="type">
+    java.lang.Object
+  </attr>
+  <!-- Removals -->
+  <remove-node path="//*[@deprecated='deprecated']" />
+  <remove-node path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/interface[@name='DependsOn']" />
+  <remove-node
+    path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='AsyncTask.SerialExecutor']" />
+  <remove-node
+    path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/class[@name='AsyncTask.SerialExecutor.1']" />
+  <!-- Field Removals -->
+  <remove-node
+    path="/api/package[@name='io.fabric.sdk.android.services.events']/class[@name='EventsFilesManager']/field[@name='lastRollOverTime']" />
+  <remove-node
+    path="/api/package[@name='io.fabric.sdk.android.services.network']/class[@name='HttpRequest']/field[@name='url']" />
+  <!-- Namespaces -->
+  <attr path="/api/package[@name='io.fabric.sdk.android']" name="managedName">Fabric.Sdk.Bindings</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.cache']" name="managedName">Fabric.Sdk.Bindings.Services.Cache</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.common']" name="managedName">Fabric.Sdk.Bindings.Services.Common</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']" name="managedName">Fabric.Sdk.Bindings.Services.Concurrency</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency.internal']" name="managedName">Fabric.Sdk.Bindings.Services.Concurrency.Internal</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.events']" name="managedName">Fabric.Sdk.Bindings.Services.Events</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.network']" name="managedName">Fabric.Sdk.Bindings.Services.Network</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.persistence']" name="managedName">Fabric.Sdk.Bindings.Services.Persistence</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']" name="managedName">Fabric.Sdk.Bindings.Services.Settings</attr>
 </metadata>

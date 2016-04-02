@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Crashlytics.Sdk.Answers.Events
+﻿namespace Crashlytics.Sdk.Answers.Events
 {
-    public class SignUp
+    public class SignUp : Base
     {
         public string Method { get; set; }
 
         public bool Success { get; set; }
     }
 }
-

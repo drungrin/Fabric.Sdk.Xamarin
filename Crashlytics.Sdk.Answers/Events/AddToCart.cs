@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Crashlytics.Sdk.Answers.Events
+﻿namespace Crashlytics.Sdk.Answers.Events
 {
     public class AddToCart : Base
     {
@@ -15,4 +13,3 @@ namespace Crashlytics.Sdk.Answers.Events
         public string CurrencyCode { get; set; }
     }
 }
-

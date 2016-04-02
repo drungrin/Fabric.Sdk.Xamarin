@@ -1,6 +1,6 @@
 ﻿namespace Crashlytics.Sdk.Answers.Events
 {
-    public class Purchase
+    public class Purchase : Base
     {
         public string ItemId { get; set; }
 
@@ -15,4 +15,3 @@
         public bool Success { get; set; }
     }
 }
-

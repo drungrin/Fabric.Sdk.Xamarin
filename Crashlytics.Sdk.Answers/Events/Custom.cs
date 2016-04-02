@@ -5,4 +5,3 @@
         public string EventName { get; set; }
     }
 }
-

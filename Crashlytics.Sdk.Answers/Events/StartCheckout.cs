@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Crashlytics.Sdk.Answers.Events
+﻿namespace Crashlytics.Sdk.Answers.Events
 {
-    public class StartCheckout
+    public class StartCheckout : Base
     {
         public int ItemCount { get; set; }
 
@@ -11,4 +9,3 @@ namespace Crashlytics.Sdk.Answers.Events
         public string CurrencyCode { get; set; }
     }
 }
-

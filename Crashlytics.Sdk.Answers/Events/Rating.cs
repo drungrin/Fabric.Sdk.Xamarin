@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Crashlytics.Sdk.Answers.Events
+﻿namespace Crashlytics.Sdk.Answers.Events
 {
     public class Rating : Base
     {
@@ -13,4 +11,3 @@ namespace Crashlytics.Sdk.Answers.Events
         public int Value { get; set; }
     }
 }
-

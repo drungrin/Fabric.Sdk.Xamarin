@@ -2,6 +2,6 @@
 {
     public class Invite : Base
     {
-        public string InviteMethod { get; set; }
+        public string Method { get; set; }
     }
 }

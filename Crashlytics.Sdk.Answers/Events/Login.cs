@@ -2,8 +2,8 @@
 {
     public class Login : Base
     {
-        public string LoginMethod { get; set; }
+        public string Method { get; set; }
 
-        public bool LoginSucceeded { get; set; }
+        public bool Success { get; set; }
     }
 }

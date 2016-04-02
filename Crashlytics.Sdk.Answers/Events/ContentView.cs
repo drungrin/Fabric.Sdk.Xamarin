@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Crashlytics.Sdk.Answers.Events
+﻿namespace Crashlytics.Sdk.Answers.Events
 {
     public class ContentView : Base
     {
@@ -8,7 +6,6 @@ namespace Crashlytics.Sdk.Answers.Events
 
         public string ContentName { get; set; }
 
-        public string ContentType { get ; set; }
+        public string ContentType { get; set; }
     }
 }
-

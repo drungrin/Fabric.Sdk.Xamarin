@@ -1,5 +1,4 @@
-﻿using System;
-using Crashlytics.Sdk.Answers.Events;
+﻿using Crashlytics.Sdk.Answers.Events;
 
 namespace Crashlytics.Sdk.Answers
 {
@@ -32,4 +31,3 @@ namespace Crashlytics.Sdk.Answers
         void LogSearch(Search data);
     }
 }
-
