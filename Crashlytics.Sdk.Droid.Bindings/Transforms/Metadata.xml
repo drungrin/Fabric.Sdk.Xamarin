@@ -1,0 +1,10 @@
+﻿<metadata>
+    <!-- Method Overrides -->
+    <attr path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/method[@name='doInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
+    <!-- Namespaces Renames -->
+    <attr path="/api/package[@name='com.crashlytics.android']" name="managedName">Crashlytics.Sdk.Bindings</attr>
+    <!-- Deprecates Removal -->
+    <remove-node path="//*[@deprecated='deprecated']" />
+    <!-- Field Removals -->
+    <remove-node path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/field[@name='kits']" />
+</metadata>

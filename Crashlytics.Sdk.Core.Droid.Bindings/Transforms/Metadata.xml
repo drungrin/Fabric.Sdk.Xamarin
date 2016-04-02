@@ -1,0 +1,12 @@
+﻿<metadata>
+    <!-- Method Overrides -->
+    <attr path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsCore']/method[@name='doInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
+    <!-- Namespaces Renames -->
+    <attr path="/api/package[@name='com.crashlytics.android.core']" name="managedName">Crashlytics.Sdk.Bindings.Core</attr>
+    <attr path="/api/package[@name='com.crashlytics.android.core.internal']" name="managedName">Crashlytics.Sdk.Bindings.Core.Internal</attr>
+    <attr path="/api/package[@name='com.crashlytics.android.core.internal.models']" name="managedName">Crashlytics.Sdk.Bindings.Core.Internal.Models</attr>
+    <!-- Class Removals -->
+    <remove-node path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsCore.CrashMarkerCheck']" />
+    <!-- Deprecates Removal -->
+    <remove-node path="//*[@deprecated='deprecated']" />
+</metadata>
