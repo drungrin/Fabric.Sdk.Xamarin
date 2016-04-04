@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crashlytics.Sdk.Droid.Bindi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crashlytics.Sdk.Answers.Droid", "Crashlytics.Sdk.Answers.Droid\Crashlytics.Sdk.Answers.Droid.csproj", "{D7422958-5058-48A7-94D6-0241BB33CA08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crashlytics.Sdk", "Crashlytics.Sdk\Crashlytics.Sdk.csproj", "{F2116B41-BA24-4491-B02F-9AD753746671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crashlytics.Sdk.Droid", "Crashlytics.Sdk.Droid\Crashlytics.Sdk.Droid.csproj", "{41B6862F-3756-403A-9234-25E4E1BD2769}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{D7422958-5058-48A7-94D6-0241BB33CA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7422958-5058-48A7-94D6-0241BB33CA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7422958-5058-48A7-94D6-0241BB33CA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2116B41-BA24-4491-B02F-9AD753746671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2116B41-BA24-4491-B02F-9AD753746671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2116B41-BA24-4491-B02F-9AD753746671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2116B41-BA24-4491-B02F-9AD753746671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B6862F-3756-403A-9234-25E4E1BD2769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B6862F-3756-403A-9234-25E4E1BD2769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B6862F-3756-403A-9234-25E4E1BD2769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B6862F-3756-403A-9234-25E4E1BD2769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

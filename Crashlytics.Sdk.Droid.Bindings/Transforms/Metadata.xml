@@ -5,6 +5,16 @@
     name="return">
     java.lang.Object
   </attr>
+  <attr
+    path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/field[@name='answers']"
+    name="type">
+    Crashlytics.Sdk.Bindings.Answers.CrashlyticsAnswers
+  </attr>
+  <attr
+   path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics.Builder']/method[@name='answers']/parameter[@type='com.crashlytics.android.answers.Answers']"
+   name="type">
+    Crashlytics.Sdk.Bindings.Answers.CrashlyticsAnswers
+  </attr>
   <!-- Namespaces Renames -->
   <attr path="/api/package[@name='com.crashlytics.android']" name="managedName">Crashlytics.Sdk.Bindings</attr>
   <!-- Deprecates Removal -->

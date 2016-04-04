@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,16 +55,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
-      <Project>{9B681AC4-61FB-405A-9567-FDA063EB0553}</Project>
-      <Name>Fabric.Sdk.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
-      <Project>{AB8047B9-BDE5-4627-8F7A-15F0DE1E9A3A}</Project>
-      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
-    </ProjectReference>
+    <LibraryProjectZip Include="Jars\crashlytics-core-2.3.8.aar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\crashlytics-core-2.3.8.aar" />
+    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
+      <Project>{ab8047b9-bde5-4627-8f7a-15f0de1e9a3a}</Project>
+      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
+      <Project>{9b681ac4-61fb-405a-9567-fda063eb0553}</Project>
+      <Name>Fabric.Sdk.Droid.Bindings</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
