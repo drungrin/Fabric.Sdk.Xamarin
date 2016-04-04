@@ -7,7 +7,7 @@ using System.Reflection;
 [assembly: AssemblyTitle("Crashlytics.Sdk")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Michel Moreira")]
 [assembly: AssemblyProduct("Crashlytics.Sdk")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
