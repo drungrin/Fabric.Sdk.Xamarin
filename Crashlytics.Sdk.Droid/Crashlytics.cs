@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Android.App;
+using Android.Runtime;
 using Java.Lang;
 using Exception = System.Exception;
 using NativeCrashlytics = Crashlytics.Sdk.Bindings.Crashlytics;
@@ -9,7 +11,7 @@ namespace Crashlytics.Sdk.Droid
 {
     public class Crashlytics : ICrashlytics
     {
-        public static readonly Regex StackTraceRegex = new Regex(@"[\x20\t]*
+        private static readonly Regex StackTraceRegex = new Regex(@"[\x20\t]*
             \w+ [\x20\t]+
             (?<frame>
                 (?<type> [^\x20\t]+ ) \.
@@ -29,6 +31,15 @@ namespace Crashlytics.Sdk.Droid
             | RegexOptions.IgnorePatternWhitespace
             | RegexOptions.Compiled,
             TimeSpan.FromSeconds(5));
+
+        public Crashlytics()
+        {
+            Fabric.Sdk.Bindings.Fabric.With(Application.Context, new NativeCrashlytics());
+
+            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
+            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
+        }
 
         public void Crash()
         {
@@ -93,6 +104,14 @@ namespace Crashlytics.Sdk.Droid
         public void SetUserName(string name)
         {
             NativeCrashlytics.SetUserName(name);
+        }
+
+        private void UncaughtException(object exeptionObject)
+        {
+            var exception = exeptionObject as Exception;
+            if (exception == null) return;
+            var handler = Thread.DefaultUncaughtExceptionHandler;
+            handler.UncaughtException(Thread.CurrentThread(), ToThrowable(exception));
         }
 
         private static Throwable ToThrowable(Exception exception)

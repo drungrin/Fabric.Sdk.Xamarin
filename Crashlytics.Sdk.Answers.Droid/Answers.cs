@@ -1,4 +1,5 @@
-﻿using Crashlytics.Sdk.Answers.Events;
+﻿using Android.App;
+using Crashlytics.Sdk.Answers.Events;
 using Crashlytics.Sdk.Bindings.Answers;
 using Java.Lang;
 using Java.Math;
@@ -8,6 +9,11 @@ namespace Crashlytics.Sdk.Answers.Droid
 {
     public class Answers : IAnswers
     {
+        public Answers()
+        {
+            Fabric.Sdk.Bindings.Fabric.With(Application.Context, new CrashlyticsAnswers());
+        }
+
         public void LogAddToCart(AddToCart data)
         {
             var addToCartEvent = new AddToCartEvent();
