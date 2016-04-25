@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.1">
     <id>Crashlytics.Sdk.Answers</id>
-    <version>1.3.6-alpha1</version>
+    <version>1.3.6-alpha2</version>
     <title>Xamarin SDK for Crashlytics Answers</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/Drungrin/Fabric.SDK-Xamarin</projectUrl>
