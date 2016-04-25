@@ -10,8 +10,9 @@
     <AssemblyName>Crashlytics.Sdk.Answers</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <ReleaseVersion>1.0.0-alpha2</ReleaseVersion>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <ReleaseVersion>1.3.6-alpha2</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

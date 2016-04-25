@@ -11,26 +11,7 @@ namespace Crashlytics.Sdk.Droid
 {
     public class Crashlytics : ICrashlytics
     {
-        private static readonly Regex StackTraceRegex = new Regex(@"[\x20\t]*
-            \w+ [\x20\t]+
-            (?<frame>
-                (?<type> [^\x20\t]+ ) \.
-                (?<method> [^\x20\t]+? ) [\x20\t]*
-                (?<params>  \( ( [\x20\t]* \)
-                               | (?<pt> .+?) [\x20\t]+ (?<pn> [^,]+?) (, [\x20\t]* (?<ptx> .+?) [\x20\t]+ (?<pnx> .+?) )* \) )*? )
-                [\x20\t]+
-                \[0x[0-9a-f]+\] [\x20\t]+ \w+ [\x20\t]+
-                (?<file> [^>]+? ) :
-                (?<line> [0-9]+ )               
-            )
-            ",
-            RegexOptions.IgnoreCase
-            | RegexOptions.Multiline
-            | RegexOptions.ExplicitCapture
-            | RegexOptions.CultureInvariant
-            | RegexOptions.IgnorePatternWhitespace
-            | RegexOptions.Compiled,
-            TimeSpan.FromSeconds(5));
+        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s\S+[\\/](\S+):(\d+)");
 
         public Crashlytics()
         {
@@ -124,10 +105,10 @@ namespace Crashlytics.Sdk.Droid
             var stackTrace = new List<StackTraceElement>();
             foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
             {
-                var cls = match.Groups["type"].Value;
-                var method = match.Groups["method"].Value;
-                var file = match.Groups["file"].Value;
-                var line = Convert.ToInt32(match.Groups["line"].Value);
+                var cls = match.Groups[1].Value;
+                var method = match.Groups[2].Value;
+                var file = match.Groups[3].Value;
+                var line = Convert.ToInt32(match.Groups[4].Value);
                 if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
                     !cls.StartsWith("System.Runtime.CompilerServices"))
                 {
