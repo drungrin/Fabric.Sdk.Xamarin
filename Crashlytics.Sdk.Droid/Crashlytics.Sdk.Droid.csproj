@@ -56,25 +56,9 @@
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
-      <Project>{ab8047b9-bde5-4627-8f7a-15f0de1e9a3a}</Project>
-      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Beta.Droid.Bindings\Crashlytics.Sdk.Beta.Droid.Bindings.csproj">
-      <Project>{6f11aa39-37b9-4f87-a095-835e789c1bfe}</Project>
-      <Name>Crashlytics.Sdk.Beta.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Core.Droid.Bindings\Crashlytics.Sdk.Core.Droid.Bindings.csproj">
-      <Project>{eef74c14-fbec-431a-a1c4-1e42ae03658c}</Project>
-      <Name>Crashlytics.Sdk.Core.Droid.Bindings</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Crashlytics.Sdk.Droid.Bindings\Crashlytics.Sdk.Droid.Bindings.csproj">
       <Project>{8ee1b9e0-130d-4dce-aa41-6acfb9042f39}</Project>
       <Name>Crashlytics.Sdk.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk\Crashlytics.Sdk.csproj">
-      <Project>{f2116b41-ba24-4491-b02f-9ad753746671}</Project>
-      <Name>Crashlytics.Sdk</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
       <Project>{9b681ac4-61fb-405a-9567-fda063eb0553}</Project>

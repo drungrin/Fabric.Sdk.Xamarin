@@ -2,18 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.1">
     <id>Crashlytics.Sdk.Core</id>
-    <version>2.3.8-alpha2</version>
-    <title>Xamarin SDK Crashlytics Core</title>
+    <version>2.3.8-alpha3</version>
+    <title>Crashlytics Core</title>
     <authors>Michel Moreira</authors>
-    <projectUrl>https://github.com/Drungrin/Fabric.SDK-Xamarin</projectUrl>
+    <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
     <licenseUrl>http://try.crashlytics.com/terms/terms-of-service.pdf</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description> This project provides an Xamarin SDK for Crashlytics Sdk Core. </description>
     <summary> This project provides an Xamarin SDK for Crashlytics Sdk Core. </summary>
     <tags>xamarin, xamarin.forms, android, ios, windows phone, fabric, twitter</tags>
     <dependencies>
-      <dependency id="Fabric.Sdk" version="1.3.10-alpha2" />
-      <dependency id="Crashlytics.Sdk.Answers" version="1.3.6-alpha2" />
+      <dependency id="Fabric.Sdk" version="1.3.10-alpha3" />
+      <dependency id="Crashlytics.Sdk.Answers" version="1.3.6-alpha3" />
     </dependencies>
   </metadata>
   <files>

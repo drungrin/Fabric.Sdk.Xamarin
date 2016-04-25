@@ -58,10 +58,6 @@
     <LibraryProjectZip Include="Jars\crashlytics-core-2.3.8.aar" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
-      <Project>{ab8047b9-bde5-4627-8f7a-15f0de1e9a3a}</Project>
-      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
       <Project>{9b681ac4-61fb-405a-9567-fda063eb0553}</Project>
       <Name>Fabric.Sdk.Droid.Bindings</Name>

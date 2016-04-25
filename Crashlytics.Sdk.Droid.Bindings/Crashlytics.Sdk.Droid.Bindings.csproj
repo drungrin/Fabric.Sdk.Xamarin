@@ -62,17 +62,5 @@
       <Project>{9B681AC4-61FB-405A-9567-FDA063EB0553}</Project>
       <Name>Fabric.Sdk.Droid.Bindings</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Core.Droid.Bindings\Crashlytics.Sdk.Core.Droid.Bindings.csproj">
-      <Project>{EEF74C14-FBEC-431A-A1C4-1E42AE03658C}</Project>
-      <Name>Crashlytics.Sdk.Core.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Beta.Droid.Bindings\Crashlytics.Sdk.Beta.Droid.Bindings.csproj">
-      <Project>{6F11AA39-37B9-4F87-A095-835E789C1BFE}</Project>
-      <Name>Crashlytics.Sdk.Beta.Droid.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
-      <Project>{AB8047B9-BDE5-4627-8F7A-15F0DE1E9A3A}</Project>
-      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
