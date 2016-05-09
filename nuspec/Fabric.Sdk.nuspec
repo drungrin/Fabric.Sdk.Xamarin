@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.1">
     <id>Fabric.Sdk</id>
-    <version>1.3.10-alpha3</version>
+    <version>1.3.10.1</version>
     <title>Fabric</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>

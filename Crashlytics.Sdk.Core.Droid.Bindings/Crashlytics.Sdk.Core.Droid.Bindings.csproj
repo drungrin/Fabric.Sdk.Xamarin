@@ -11,7 +11,7 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Crashlytics.Sdk.Core.Droid.Bindings</AssemblyName>
-    <ReleaseVersion>2.3.8-alpha2</ReleaseVersion>
+    <ReleaseVersion>2.3.8</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
-      <Project>{9b681ac4-61fb-405a-9567-fda063eb0553}</Project>
+      <Project>{9B681AC4-61FB-405A-9567-FDA063EB0553}</Project>
       <Name>Fabric.Sdk.Droid.Bindings</Name>
     </ProjectReference>
   </ItemGroup>

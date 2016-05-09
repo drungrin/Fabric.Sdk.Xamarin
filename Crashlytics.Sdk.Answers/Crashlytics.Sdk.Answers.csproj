@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <ReleaseVersion>1.3.6-alpha2</ReleaseVersion>
+    <ReleaseVersion>1.3.6</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
