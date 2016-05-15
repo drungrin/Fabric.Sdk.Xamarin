@@ -14,7 +14,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
-    <ReleaseVersion>1.3.6</ReleaseVersion>
+    <ReleaseVersion>1.3.6.1</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -54,10 +54,6 @@
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
-      <Project>{AB8047B9-BDE5-4627-8F7A-15F0DE1E9A3A}</Project>
-      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Crashlytics.Sdk.Answers\Crashlytics.Sdk.Answers.csproj">
       <Project>{098CB5FB-B271-4D6A-A3DA-6763EB97CC71}</Project>
       <Name>Crashlytics.Sdk.Answers</Name>
@@ -65,6 +61,10 @@
     <ProjectReference Include="..\Fabric.Sdk.Droid.Bindings\Fabric.Sdk.Droid.Bindings.csproj">
       <Project>{9B681AC4-61FB-405A-9567-FDA063EB0553}</Project>
       <Name>Fabric.Sdk.Droid.Bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crashlytics.Sdk.Answers.Droid.Bindings\Crashlytics.Sdk.Answers.Droid.Bindings.csproj">
+      <Project>{AB8047B9-BDE5-4627-8F7A-15F0DE1E9A3A}</Project>
+      <Name>Crashlytics.Sdk.Answers.Droid.Bindings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

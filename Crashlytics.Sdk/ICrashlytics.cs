@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Crashlytics.Sdk
+namespace CrashlyticsSdk
 {
     public interface ICrashlytics
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Crashlytics.Sdk.Answers.Events
+namespace CrashlyticsSdk.Answers.Events
 {
     public abstract class Base
     {

@@ -1,17 +1,17 @@
 ﻿using Android.App;
-using Crashlytics.Sdk.Answers.Events;
-using Crashlytics.Sdk.Bindings.Answers;
+using CrashlyticsSdk.Answers.Events;
+using CrashlyticsSdk.Answers.Bindings;
 using Java.Lang;
 using Java.Math;
 using Java.Util;
 
-namespace Crashlytics.Sdk.Answers.Droid
+namespace CrashlyticsSdk.Answers.Droid
 {
     public class Answers : IAnswers
     {
         public Answers()
         {
-            Fabric.Sdk.Bindings.Fabric.With(Application.Context, new CrashlyticsAnswers());
+            FabricSdk.Bindings.Fabric.With(Application.Context, new CrashlyticsSdk.Answers.Bindings.Answers());
         }
 
         public void LogAddToCart(AddToCart data)
@@ -28,7 +28,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             }
 
             CopyCustomAttributes(data, addToCartEvent);
-            CrashlyticsAnswers.Instance.LogAddToCart(addToCartEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogAddToCart(addToCartEvent);
         }
 
         public void LogContentView(ContentView data)
@@ -40,14 +40,14 @@ namespace Crashlytics.Sdk.Answers.Droid
 
             CopyCustomAttributes(data, contentViewEvent);
 
-            CrashlyticsAnswers.Instance.LogContentView(contentViewEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogContentView(contentViewEvent);
         }
 
         public void LogCustom(Custom data)
         {
             var customEvent = new CustomEvent(data.EventName);
             CopyCustomAttributes(data, customEvent);
-            CrashlyticsAnswers.Instance.LogCustom(customEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogCustom(customEvent);
         }
 
         public void LogInvite(Invite data)
@@ -55,7 +55,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             var inviteEvent = new InviteEvent();
             inviteEvent.PutMethod(data.Method);
             CopyCustomAttributes(data, inviteEvent);
-            CrashlyticsAnswers.Instance.LogInvite(inviteEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogInvite(inviteEvent);
         }
 
         public void LogLevelEnd(LevelEnd data)
@@ -65,7 +65,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             levelEndEvent.PutScore(Double.ValueOf(data.Score));
             levelEndEvent.PutSuccess(data.Success);
             CopyCustomAttributes(data, levelEndEvent);
-            CrashlyticsAnswers.Instance.LogLevelEnd(levelEndEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogLevelEnd(levelEndEvent);
         }
 
         public void LogLevelStart(LevelStart data)
@@ -73,7 +73,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             var levelStartEvent = new LevelStartEvent();
             levelStartEvent.PutLevelName(data.LevelName);
             CopyCustomAttributes(data, levelStartEvent);
-            CrashlyticsAnswers.Instance.LogLevelStart(levelStartEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogLevelStart(levelStartEvent);
         }
 
         public void LogLogin(Login data)
@@ -82,7 +82,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             loginEvent.PutMethod(data.Method);
             loginEvent.PutSuccess(data.Success);
             CopyCustomAttributes(data, loginEvent);
-            CrashlyticsAnswers.Instance.LogLogin(loginEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogLogin(loginEvent);
         }
 
         public void LogPurchase(Purchase data)
@@ -101,7 +101,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             }
 
             CopyCustomAttributes(data, purchaseEvent);
-            CrashlyticsAnswers.Instance.LogPurchase(purchaseEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogPurchase(purchaseEvent);
         }
 
         public void LogRating(Rating data)
@@ -112,7 +112,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             ratingEvent.PutContentType(data.ContentType);
             ratingEvent.PutRating(data.Value);
             CopyCustomAttributes(data, ratingEvent);
-            CrashlyticsAnswers.Instance.LogRating(ratingEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogRating(ratingEvent);
         }
 
         public void LogSearch(Search data)
@@ -120,7 +120,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             var searchEvent = new SearchEvent();
             searchEvent.PutQuery(data.Query);
             CopyCustomAttributes(data, searchEvent);
-            CrashlyticsAnswers.Instance.LogSearch(searchEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogSearch(searchEvent);
         }
 
         public void LogShare(Share data)
@@ -131,7 +131,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             shareEvent.PutContentType(data.ContentType);
             shareEvent.PutMethod(data.Method);
             CopyCustomAttributes(data, shareEvent);
-            CrashlyticsAnswers.Instance.LogShare(shareEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogShare(shareEvent);
         }
 
         public void LogSignUp(SignUp data)
@@ -140,7 +140,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             signUpEvent.PutMethod(data.Method);
             signUpEvent.PutSuccess(data.Success);
             CopyCustomAttributes(data, signUpEvent);
-            CrashlyticsAnswers.Instance.LogSignUp(signUpEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogSignUp(signUpEvent);
         }
 
         public void LogStartCheckout(StartCheckout data)
@@ -156,7 +156,7 @@ namespace Crashlytics.Sdk.Answers.Droid
             }
 
             CopyCustomAttributes(data, checkoutEvent);
-            CrashlyticsAnswers.Instance.LogStartCheckout(checkoutEvent);
+            CrashlyticsSdk.Answers.Bindings.Answers.Instance.LogStartCheckout(checkoutEvent);
         }
 
         private static void CopyCustomAttributes(Base src, AnswersEvent dst)

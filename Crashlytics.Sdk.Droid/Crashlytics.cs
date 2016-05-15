@@ -5,9 +5,10 @@ using Android.App;
 using Android.Runtime;
 using Java.Lang;
 using Exception = System.Exception;
-using NativeCrashlytics = Crashlytics.Sdk.Bindings.Crashlytics;
+using NativeCrashlytics = CrashlyticsSdk.Bindings.Crashlytics;
+using System.Threading.Tasks;
 
-namespace Crashlytics.Sdk.Droid
+namespace CrashlyticsSdk.Droid
 {
     public class Crashlytics : ICrashlytics
     {
@@ -15,11 +16,11 @@ namespace Crashlytics.Sdk.Droid
 
         public Crashlytics()
         {
-            Fabric.Sdk.Bindings.Fabric.With(Application.Context, new NativeCrashlytics());
+            FabricSdk.Bindings.Fabric.With(Application.Context, new NativeCrashlytics());
 
             AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
             AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
-            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
+            TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);
         }
 
         public void Crash()
@@ -90,9 +91,19 @@ namespace Crashlytics.Sdk.Droid
         private void UncaughtException(object exeptionObject)
         {
             var exception = exeptionObject as Exception;
-            if (exception == null) return;
+            if (exception == null)
+                return;
+            if (exception.Data.Contains("Crashlytics"))
+                return;
             var handler = Thread.DefaultUncaughtExceptionHandler;
-            handler.UncaughtException(Thread.CurrentThread(), ToThrowable(exception));
+            try
+            {
+                handler.UncaughtException(Thread.CurrentThread(), ToThrowable(exception));
+            }
+            catch (Exception ignored)
+            {
+                ignored.GetType(); 
+            }
         }
 
         private static Throwable ToThrowable(Exception exception)
@@ -101,7 +112,7 @@ namespace Crashlytics.Sdk.Droid
                 exception = exception.InnerException;
 
             var throwable = new Throwable(exception.Message);
-
+            throwable.Data.Add("Crashlytics", true);
             var stackTrace = new List<StackTraceElement>();
             foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
             {

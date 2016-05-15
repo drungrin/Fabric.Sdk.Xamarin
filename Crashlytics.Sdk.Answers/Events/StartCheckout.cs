@@ -1,4 +1,4 @@
-﻿namespace Crashlytics.Sdk.Answers.Events
+﻿namespace CrashlyticsSdk.Answers.Events
 {
     public class StartCheckout : Base
     {

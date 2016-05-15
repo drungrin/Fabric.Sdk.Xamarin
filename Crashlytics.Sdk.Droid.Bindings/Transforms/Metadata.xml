@@ -16,7 +16,7 @@
     Crashlytics.Sdk.Bindings.Answers.CrashlyticsAnswers
   </attr>
   <!-- Namespaces Renames -->
-  <attr path="/api/package[@name='com.crashlytics.android']" name="managedName">Crashlytics.Sdk.Bindings</attr>
+  <attr path="/api/package[@name='com.crashlytics.android']" name="managedName">CrashlyticsSdk.Bindings</attr>
   <!-- Deprecates Removal -->
   <remove-node path="//*[@deprecated='deprecated']" />
   <!-- Field Removals -->

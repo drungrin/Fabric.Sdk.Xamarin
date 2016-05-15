@@ -1,6 +1,6 @@
-﻿using Crashlytics.Sdk.Answers.Events;
+﻿using CrashlyticsSdk.Answers.Events;
 
-namespace Crashlytics.Sdk.Answers
+namespace CrashlyticsSdk.Answers
 {
     public interface IAnswers
     {

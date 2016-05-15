@@ -10,8 +10,6 @@
     name="return">
     java.lang.Object
   </attr>
-  <!-- Class Renames -->
-  <attr path="/api/package[@name='com.crashlytics.android.beta']/class[@name='Beta']" name="managedName">FabricBeta</attr>
   <!-- Namespaces Renames -->
-  <attr path="/api/package[@name='com.crashlytics.android.beta']" name="managedName">Crashlytics.Sdk.Bindings.Beta</attr>
+  <attr path="/api/package[@name='com.crashlytics.android.beta']" name="managedName">CrashlyticsSdk.Beta.Bindings</attr>
 </metadata>
