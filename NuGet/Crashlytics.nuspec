@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.8.1">
+    <id>Crashlytics</id>
+    <version>1.0</version>
+    <title>Crashlytics</title>
+    <authors>Michel Moreira</authors>
+    <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
+    <licenseUrl>https://answers.io/terms</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Part of Twitter Fabric, Crashlytics offers the most powerful, yet lightest weight crash reporting solution for iOS. Crashlytics also provides real-time analytics through Answers and app distributions to testers using Beta.</description>
+    <summary>Best and lightest-weight crash reporting for mobile, desktop and tvOS.</summary>
+    <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, answers</tags>
+    <dependencies>            
+      <group>
+        <dependency id="Fabric" version="1.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- PCL -->
+    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
+          target="lib\portable-net45+netcore45+wpa81\CrashlyticsKit.dll" />
+    <file src="..\Sources\CrashlyticsKit.Pcl\bin\Release\CrashlyticsKit.Platform.dll"
+          target="lib\portable-net45+netcore45+wpa81\CrashlyticsKit.Platform.dll" />
+
+    <!-- Xamarin.Android -->
+    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
+          target="lib\MonoAndroid10\AnswersKit.dll" />
+    <file src="..\Sources\AnswersKit.Droid\bin\Release\AnswersKit.Platform.dll"
+          target="lib\MonoAndroid10\AnswersKit.Platform.dll" />
+    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
+          target="lib\MonoAndroid10\CrashlyticsKit.dll" />
+    <file src="..\Sources\CrashlyticsKit.Droid\bin\Release\CrashlyticsKit.Platform.dll"
+          target="lib\MonoAndroid10\CrashlyticsKit.Platform.dll" />
+
+    <!-- Xamarin.iOS -->
+    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
+      target="lib\Xamarin.iOS10\AnswersKit.dll" />
+    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
+          target="lib\Xamarin.iOS10\CrashlyticsKit.dll" />
+    <file src="..\Sources\CrashlyticsKit.Touch\bin\Release\CrashlyticsKit.Platform.dll"
+          target="lib\Xamarin.iOS10\CrashlyticsKit.Platform.dll" />
+  </files>
+</package>

@@ -1,7 +1,0 @@
-﻿namespace CrashlyticsSdk.Answers.Events
-{
-    public class LevelStart : Base
-    {
-        public string LevelName { get; set; }
-    }
-}
