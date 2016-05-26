@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.8.1">
+    <id>Answers</id>
+    <version>1.0</version>
+    <title>Answers</title>
+    <authors>Michel Moreira</authors>
+    <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
+    <licenseUrl>https://answers.io/terms</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Part of Twitter Fabric, Answers is real-time mobile analytics that you don't need to analyze. It was created to make understanding your user base incredibly simple -- so you can spend your time building amazing experiences in your product, not digging through data.</description>
+    <summary>Finally, mobile app analytics you don’t need to analyze.</summary>
+    <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, answers</tags>
+    <dependencies>
+      <dependency id="Fabric" version="1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- PCL -->
+    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
+          target="lib\portable-net45+netcore45+wpa81\AnswersKit.dll" />
+    <file src="..\Sources\AnswersKit.Pcl\bin\Release\AnswersKit.Platform.dll"
+          target="lib\portable-net45+netcore45+wpa81\AnswersKit.Platform.dll" />
+
+    <!-- Xamarin.Android -->
+    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
+          target="lib\MonoAndroid10\AnswersKit.dll" />
+    <file src="..\Sources\AnswersKit.Droid\bin\Release\AnswersKit.Platform.dll"
+          target="lib\MonoAndroid10\AnswersKit.Platform.dll" />
+
+    <!-- Xamarin.iOS -->
+    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
+          target="lib\Xamarin.iOS10\AnswersKit.dll" />
+    <file src="..\Sources\AnswersKit.Touch\bin\Release\AnswersKit.Platform.dll"
+          target="lib\Xamarin.iOS10\AnswersKit.Platform.dll" />
+  </files>
+</package>
