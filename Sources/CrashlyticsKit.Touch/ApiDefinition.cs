@@ -4,8 +4,9 @@ using ObjCRuntime;
 using Foundation;
 using UIKit;
 
-namespace AnswersKit.Platform
+namespace Bindings.AnswersKit
 {
+    [Preserve]
     // @interface Answers : NSObject
     [BaseType(typeof(NSObject))]
     interface Answers
@@ -77,8 +78,9 @@ namespace AnswersKit.Platform
     }
 }
 
-namespace CrashlyticsKit.Platform
-{   
+namespace Bindings.CrashlyticsKit
+{
+    [Preserve]
     [BaseType(typeof(NSObject))]
     public interface CLSStackFrame
     {
@@ -121,7 +123,7 @@ namespace CrashlyticsKit.Platform
         [Export("address")]
         ulong Address { get; set; }
     }
-
+    [Preserve]
     [BaseType(typeof(NSObject))]
     public interface Crashlytics
     {

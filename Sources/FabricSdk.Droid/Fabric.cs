@@ -19,7 +19,7 @@ namespace FabricSdk
 
         public IFabric With(IKit[] kits)
         {
-            Platform.Fabric.With(new Platform.Fabric.Builder(Application.Context)
+            Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(Application.Context)
                 .Kits(kits.Select(i => i.ToNative()).ToArray())
                 .Debuggable(Debug)
                 .Build());
@@ -31,7 +31,7 @@ namespace FabricSdk
     {
         public static IFabric With(this IFabric fabric, Context context, IKit[] kits)
         {
-            Platform.Fabric.With(new Platform.Fabric.Builder(context)
+            Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
                 .Kits(kits.Select(i => i.ToNative()).ToArray())
                 .Debuggable(fabric.Debug)
                 .Build());

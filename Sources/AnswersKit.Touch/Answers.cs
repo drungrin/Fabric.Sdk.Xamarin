@@ -9,7 +9,7 @@ namespace AnswersKit
     {
         private static readonly Lazy<Answers> LazyInstance = new Lazy<Answers>(() => new Answers());
 
-        private Answers() : base(new Platform.Answers())
+        private Answers() : base(new Bindings.AnswersKit.Answers())
         {
 
         }
@@ -20,68 +20,68 @@ namespace AnswersKit
 
         public void LogSignUp(string signUpMethod, bool signUpSucceeded, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogSignUpWithMethod(signUpMethod, signUpSucceeded, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogSignUpWithMethod(signUpMethod, signUpSucceeded, ToNsDictionary(customAttributes));
         }
 
         public void LogLogin(string loginMethod, bool loginSucceeded, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogLoginWithMethod(loginMethod, loginSucceeded, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogLoginWithMethod(loginMethod, loginSucceeded, ToNsDictionary(customAttributes));
         }
 
         public void LogShare(string shareMethod, string contentName, string contentType, string contentId,
             Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogShareWithMethod(shareMethod, contentName, contentType, contentId, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogShareWithMethod(shareMethod, contentName, contentType, contentId, ToNsDictionary(customAttributes));
         }
 
         public void LogInvite(string inviteMethod, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogInviteWithMethod(inviteMethod, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogInviteWithMethod(inviteMethod, ToNsDictionary(customAttributes));
         }
 
         public void LogPurchase(decimal itemPrice, string currency, bool purchaseSucceeded, string itemName, string itemType, string itemId, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogPurchaseWithPrice(new NSDecimalNumber(itemPrice), currency, purchaseSucceeded, itemName, itemType, itemId, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogPurchaseWithPrice(new NSDecimalNumber(itemPrice), currency, purchaseSucceeded, itemName, itemType, itemId, ToNsDictionary(customAttributes));
         }
 
         public void LogLevelStart(string levelName, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogLevelStart(levelName, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogLevelStart(levelName, ToNsDictionary(customAttributes));
         }
 
         public void LogLevelEnd(string levelName, double score, bool levelCompletedSuccesfully, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogLevelEnd(levelName, score, levelCompletedSuccesfully, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogLevelEnd(levelName, score, levelCompletedSuccesfully, ToNsDictionary(customAttributes));
         }
 
         public void LogAddToCart(decimal itemPrice, string currency, string itemName, string itemType, string itemId, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogAddToCartWithPrice(new NSDecimalNumber(itemPrice), currency, itemName, itemType, itemId, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogAddToCartWithPrice(new NSDecimalNumber(itemPrice), currency, itemName, itemType, itemId, ToNsDictionary(customAttributes));
         }
 
         public void LogStartCheckout(decimal totalPrice, string currency, int itemCount, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogStartCheckoutWithPrice(new NSDecimalNumber(totalPrice), currency, itemCount, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogStartCheckoutWithPrice(new NSDecimalNumber(totalPrice), currency, itemCount, ToNsDictionary(customAttributes));
         }
 
         public void LogRating(int rating, string contentName, string contentType, string contentId, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogRating(rating, contentName, contentType, contentId, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogRating(rating, contentName, contentType, contentId, ToNsDictionary(customAttributes));
         }
 
         public void LogContentView(string contentName, string contentType, string contentId, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogContentViewWithName(contentName, contentType, contentId, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogContentViewWithName(contentName, contentType, contentId, ToNsDictionary(customAttributes));
         }
 
         public void LogSearch(string query, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogSearchWithQuery(query, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogSearchWithQuery(query, ToNsDictionary(customAttributes));
         }
 
         public void LogCustom(string eventName, Dictionary<string, object> customAttributes = null)
         {
-            Platform.Answers.LogCustomEventWithName(eventName, ToNsDictionary(customAttributes));
+            Bindings.AnswersKit.Answers.LogCustomEventWithName(eventName, ToNsDictionary(customAttributes));
         }
 
         private static NSDictionary<NSString, NSObject> ToNsDictionary(IDictionary<string, object> source)

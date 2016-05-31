@@ -96,13 +96,13 @@
   <remove-node
     path="/api/package[@name='io.fabric.sdk.android.services.network']/class[@name='HttpRequest']/field[@name='url']" />
   <!-- Namespaces -->
-  <attr path="/api/package[@name='io.fabric.sdk.android']" name="managedName">FabricSdk.Platform</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.cache']" name="managedName">FabricSdk.Platform.Services.Cache</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.common']" name="managedName">FabricSdk.Platform.Services.Common</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']" name="managedName">FabricSdk.Platform.Services.Concurrency</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency.internal']" name="managedName">FabricSdk.Platform.Services.Concurrency.Internal</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.events']" name="managedName">FabricSdk.Platform.Services.Events</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.network']" name="managedName">FabricSdk.Platform.Services.Network</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.persistence']" name="managedName">FabricSdk.Platform.Services.Persistence</attr>
-  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']" name="managedName">FabricSdk.Platform.Services.Settings</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android']" name="managedName">Bindings.FabricSdk</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.cache']" name="managedName">Bindings.FabricSdk.Services.Cache</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.common']" name="managedName">Bindings.FabricSdk.Services.Common</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency']" name="managedName">Bindings.FabricSdk.Services.Concurrency</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.concurrency.internal']" name="managedName">Bindings.FabricSdk.Services.Concurrency.Internal</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.events']" name="managedName">Bindings.FabricSdk.Services.Events</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.network']" name="managedName">Bindings.FabricSdk.Services.Network</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.persistence']" name="managedName">Bindings.FabricSdk.Services.Persistence</attr>
+  <attr path="/api/package[@name='io.fabric.sdk.android.services.settings']" name="managedName">Bindings.FabricSdk.Services.Settings</attr>
 </metadata>

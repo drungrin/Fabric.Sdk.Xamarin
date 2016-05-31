@@ -2,9 +2,9 @@
 {
     public abstract class Kit : IKit
     {
-        internal Platform.Kit NativeKit;
+        internal Bindings.FabricSdk.Kit NativeKit;
 
-        protected Kit(Platform.Kit nativeKit)
+        protected Kit(Bindings.FabricSdk.Kit nativeKit)
         {
             NativeKit = nativeKit;
         }
@@ -12,7 +12,7 @@
 
     public static class KitMixins
     {
-        public static Platform.Kit ToNative(this IKit kit)
+        public static Bindings.FabricSdk.Kit ToNative(this IKit kit)
         {
             return (kit as Kit)?.NativeKit;
         }

@@ -6,5 +6,5 @@
     java.lang.Object
   </attr>
   <!-- Namespaces Renames -->
-  <attr path="/api/package[@name='com.crashlytics.android.answers']" name="managedName">AnswersKit.Platform</attr>
+  <attr path="/api/package[@name='com.crashlytics.android.answers']" name="managedName">Bindings.AnswersKit</attr>
 </metadata>

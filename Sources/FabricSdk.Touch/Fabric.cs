@@ -14,13 +14,13 @@ namespace FabricSdk
 
         public bool Debug
         {
-            get { return Platform.Fabric.SharedSDK().Debug; }
-            set { Platform.Fabric.SharedSDK().Debug = value; }
+            get { return Bindings.FabricSdk.Fabric.SharedSDK().Debug; }
+            set { Bindings.FabricSdk.Fabric.SharedSDK().Debug = value; }
         }
 
         public IFabric With(IKit[] kits)
         {
-            Platform.Fabric.With(Array.ConvertAll(kits, i => i.ToNative()));
+            Bindings.FabricSdk.Fabric.With(Array.ConvertAll(kits, i => i.ToNative()));
             return this;
         }
     }

@@ -1,0 +1,17 @@
+<metadata>
+  <remove-node path="//implements"/>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsErrorCodes']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivityDelegateImpl']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='AuthConfig']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='CountryInfo']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivityDelegateImpl']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsControllerImpl']" name="visibility">public</attr>
+  <!-- Fields and Returns -->
+  <attr path="/api/package[@name='com.digits.sdk.android']/class[@name='Digits']/method[@name='doInBackground']" name="return">java.lang.Object</attr>
+  <!-- Removals -->
+  <remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='failure' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.TwitterException']]" />
+  <remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='success' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.Result&lt;T&gt;']]" />  
+  <!-- Namespaces -->
+  <attr path="/api/package[@name='com.digits.sdk.android']" name="managedName">Bindings.DigitsKit</attr>
+  <attr path="/api/package[@name='com.digits.sdk.vcard']" name="managedName">Bindings.DigitsKit.VCard</attr>
+</metadata>

@@ -4,7 +4,7 @@ using ObjCRuntime;
 using Foundation;
 using UIKit;
 
-namespace AnswersKit.Platform
+namespace Bindings.AnswersKit
 {
     // @interface Answers : NSObject
     [BaseType(typeof(NSObject))]

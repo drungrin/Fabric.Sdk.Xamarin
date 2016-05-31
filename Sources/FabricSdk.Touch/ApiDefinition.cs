@@ -4,7 +4,7 @@ using ObjCRuntime;
 using Foundation;
 using UIKit;
 
-namespace FabricSdk.Platform
+namespace Bindings.FabricSdk
 {
     // @interface Fabric : NSObject
     [BaseType(typeof(NSObject))]

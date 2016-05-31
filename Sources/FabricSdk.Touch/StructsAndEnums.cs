@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FabricSdk.Touch
+namespace Bindings.FabricSdk
 {
 }
 

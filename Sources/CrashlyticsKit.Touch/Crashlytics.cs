@@ -2,103 +2,144 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using CrashlyticsKit.Platform;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Bindings.CrashlyticsKit;
 using FabricSdk;
 using Foundation;
 using ObjCRuntime;
 
 namespace CrashlyticsKit
 {
-    public class Crashlytics : Kit, ICrashlytics
+    public sealed class Crashlytics : Kit, ICrashlytics
     {
+        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s.+[\\/>](.*):(\d+)?");
+
         private static readonly Lazy<Crashlytics> LazyInstance = new Lazy<Crashlytics>(() => new Crashlytics());
 
-        private Crashlytics() : base(Platform.Crashlytics.SharedInstance)
-        {
+        private Crashlytics() : base(Bindings.CrashlyticsKit.Crashlytics.SharedInstance)
+        {            
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
+            
+            TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);            
         }
 
-        public string Version => Platform.Crashlytics.SharedInstance.Version;
+        public static ICrashlytics Instance => LazyInstance.Value;
+
+        public string Version => Bindings.CrashlyticsKit.Crashlytics.SharedInstance.Version;       
 
         public void Crash()
         {
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.Crash();
         }
 
         public ICrashlytics SetUserIdentifier(string identifier)
         {
-            Platform.Crashlytics.SharedInstance.SetUserIdentifier(identifier);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetUserIdentifier(identifier);
             return this;
         }
 
         public ICrashlytics SetUserName(string name)
         {
-            Platform.Crashlytics.SharedInstance.SetUserName(name);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetUserName(name);
             return this;
         }
 
         public ICrashlytics SetUserEmail(string email)
         {
-            Platform.Crashlytics.SharedInstance.SetUserEmail(email);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetUserEmail(email);
             return this;
         }
 
         public ICrashlytics SetObjectValue(string key, object value)
         {
-            Platform.Crashlytics.SharedInstance.SetObjectValue(NSObject.FromObject(value), key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(NSObject.FromObject(value), key);
             return this;
         }
 
         public ICrashlytics SetStringValue(string key, string value)
         {
-            Platform.Crashlytics.SharedInstance.SetObjectValue(NSObject.FromObject(value), key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(NSObject.FromObject(value), key);
             return this;
         }
 
         public ICrashlytics SetIntValue(string key, int value)
         {
-            Platform.Crashlytics.SharedInstance.SetIntValue(value, key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetIntValue(value, key);
             return this;
         }
 
         public ICrashlytics SetBoolValue(string key, bool value)
         {
-            Platform.Crashlytics.SharedInstance.SetBoolValue(value, key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetBoolValue(value, key);
             return this;
         }
 
         public ICrashlytics SetFloatValue(string key, float value)
         {
-            Platform.Crashlytics.SharedInstance.SetFloatValue(value, key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetFloatValue(value, key);
             return this;
         }
 
         public ICrashlytics SetDoubleValue(string key, double value)
         {
-            Platform.Crashlytics.SharedInstance.SetObjectValue(NSNumber.FromDouble(value), key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(NSNumber.FromDouble(value), key);
             return this;
         }
 
         public ICrashlytics SetLongValue(string key, long value)
         {
-            Platform.Crashlytics.SharedInstance.SetObjectValue(NSNumber.FromInt64(value), key);
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(NSNumber.FromInt64(value), key);
             return this;
         }
 
         public void RecordException(Exception exception)
         {
-            CaptureManagedInfo(exception);
-            CaptureStackFrames(exception);
         }
 
-        private void CaptureManagedInfo(Exception ex)
-        {
-            Platform.Crashlytics.SharedInstance.SetObjectValue(new NSString(Constants.Version), "monotouch version");
+        [DllImport(Constants.ObjectiveCLibrary, EntryPoint = "objc_msgSend")]
+        private static extern void void_objc_msgSend(IntPtr receiver, IntPtr selector);
 
-            if (ex != null)
+        private static void UncaughtException(object exeptionObject)
+        {
+            var exception = exeptionObject as Exception;
+            if (exception == null)
+                return;
+
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "unhandled exception stack trace");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "unhandled exception message");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "unhandled exception");
+
+            var stackFrames = new List<CLSStackFrame>();
+
+            foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
             {
-                Platform.Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.StackTrace), "unhandled exception stack trace");
-                Platform.Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.Message), "unhandled exception message");
-                Platform.Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.GetType().FullName), "unhandled exception");
+                var cls = match.Groups[1].Value;
+                var method = match.Groups[2].Value;
+                var file = match.Groups[3].Value;                
+                var line = Convert.ToInt32(match.Groups[4].Value);
+                if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
+                    !cls.StartsWith("System.Runtime.CompilerServices"))
+                {
+                    if (string.IsNullOrEmpty(file))
+                        file = "filename unknown";
+
+                    stackFrames.Add(new CLSStackFrame
+                    {
+                        FileName = file,
+                        LineNumber = (uint)line,
+                        Symbol = cls + "." + method,
+                        
+                    });
+                }
             }
+
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(exception.GetType().Name,  exception.Message, stackFrames.ToArray());
+
+            //var nse = new NSException(exception.GetType().Name, exception.Message, null);
+            //var sel = new Selector("raise");
+            //void_objc_msgSend(nse.Handle, sel.Handle);
         }
 
         private void CaptureStackFrames(Exception ex)
@@ -148,7 +189,7 @@ namespace CrashlyticsKit
 
                 frameWalker(new StackTrace(ex, true));
 
-                //Platform.Crashlytics.SharedInstance.RecordCustomExceptionName(ex.GetType().Name, ex.Message, frames.Cast<NSObject>().ToArray());
+                //Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(ex.GetType().Name, ex.Message, frames.Cast<NSObject>().ToArray());
             }
         }
     }

@@ -11,11 +11,11 @@ namespace CrashlyticsKit
 {
     public class Crashlytics : Kit, ICrashlytics
     {
-        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s\S+[\\/](\S+):(\d+)?");
+        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s.+[\\/>](.*):(\d+)?");
 
         private static readonly Lazy<Crashlytics> LazyInstance = new Lazy<Crashlytics>(() => new Crashlytics());
 
-        private Crashlytics() : base(new Platform.Crashlytics())
+        private Crashlytics() : base(new Bindings.CrashlyticsKit.Crashlytics())
         {
             AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
             AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
@@ -24,75 +24,75 @@ namespace CrashlyticsKit
 
         public static ICrashlytics Instance => LazyInstance.Value;
 
-        public string Version => Platform.Crashlytics.Instance.Version;
+        public string Version => Bindings.CrashlyticsKit.Crashlytics.Instance.Version;
 
         public void Crash()
         {
-            Platform.Crashlytics.Instance.Crash();
+            Bindings.CrashlyticsKit.Crashlytics.Instance.Crash();
         }
 
         public void RecordException(Exception exception)
         {
-            Platform.Crashlytics.LogException(ToThrowable(exception));
+            Bindings.CrashlyticsKit.Crashlytics.LogException(ToThrowable(exception));
         }
 
         public ICrashlytics SetStringValue(string key, string value)
         {
-            Platform.Crashlytics.SetString(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetString(key, value);
             return this;
         }
 
         public ICrashlytics SetBoolValue(string key, bool value)
         {
-            Platform.Crashlytics.SetBool(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetBool(key, value);
             return this;
         }
 
         public ICrashlytics SetFloatValue(string key, float value)
         {
-            Platform.Crashlytics.SetFloat(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetFloat(key, value);
             return this;
         }
 
         public ICrashlytics SetDoubleValue(string key, double value)
         {
-            Platform.Crashlytics.SetDouble(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetDouble(key, value);
             return this;
         }
 
         public ICrashlytics SetIntValue(string key, int value)
         {
-            Platform.Crashlytics.SetInt(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetInt(key, value);
             return this;
         }
 
         public ICrashlytics SetLongValue(string key, long value)
         {
-            Platform.Crashlytics.SetLong(key, value);
+            Bindings.CrashlyticsKit.Crashlytics.SetLong(key, value);
             return this;
         }
 
         public ICrashlytics SetObjectValue(string key, object value)
         {
-            Platform.Crashlytics.SetString(key, value?.ToString());
+            Bindings.CrashlyticsKit.Crashlytics.SetString(key, value?.ToString());
             return this;
         }
 
         public ICrashlytics SetUserEmail(string email)
         {
-            Platform.Crashlytics.SetUserEmail(email);
+            Bindings.CrashlyticsKit.Crashlytics.SetUserEmail(email);
             return this;
         }
 
         public ICrashlytics SetUserIdentifier(string identifier)
         {
-            Platform.Crashlytics.SetUserIdentifier(identifier);
+            Bindings.CrashlyticsKit.Crashlytics.SetUserIdentifier(identifier);
             return this;
         }
 
         public ICrashlytics SetUserName(string name)
         {
-            Platform.Crashlytics.SetUserName(name);
+            Bindings.CrashlyticsKit.Crashlytics.SetUserName(name);
             return this;
         }
 
@@ -122,6 +122,9 @@ namespace CrashlyticsKit
                 if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
                     !cls.StartsWith("System.Runtime.CompilerServices"))
                 {
+                    if (string.IsNullOrEmpty(file))
+                        file = "filename unknown";
+
                     stackTrace.Add(new StackTraceElement(cls, method, file, line));
                 }
             }
@@ -143,9 +146,9 @@ namespace CrashlyticsKit
             if (exception.Data.Contains("Crashlytics"))
                 return;
 
-            Platform.Crashlytics.SetString(exception.StackTrace, "unhandled exception stack trace");
-            Platform.Crashlytics.SetString(exception.Message, "unhandled exception message");
-            Platform.Crashlytics.SetString(exception.GetType().FullName, "unhandled exception");
+            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception stack trace", exception.StackTrace);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception message", exception.Message);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception", exception.GetType().FullName);
 
             var handler = Thread.DefaultUncaughtExceptionHandler;
             handler.UncaughtException(Thread.CurrentThread(), ToThrowable(exception));                

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CrashlyticsKit.Touch
+namespace Bindings.CrashlyticsKit
 {
 }
 

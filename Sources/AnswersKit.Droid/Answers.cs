@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using AnswersKit.Platform;
+using Bindings.AnswersKit;
 using FabricSdk;
 using Java.Lang;
 using Java.Math;
@@ -15,7 +15,7 @@ namespace AnswersKit
     {
         private static readonly Lazy<Answers> LazyInstance = new Lazy<Answers>(() => new Answers());
 
-        private Answers() : base(new Platform.Answers())
+        private Answers() : base(new Bindings.AnswersKit.Answers())
         {
 
         }
@@ -29,7 +29,7 @@ namespace AnswersKit
             answersEvent.PutMethod(signUpMethod);
             answersEvent.PutSuccess(signUpSucceeded);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogSignUp(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogSignUp(answersEvent);
         }
 
         public void LogLogin(string loginMethod, bool loginSucceeded,
@@ -39,7 +39,7 @@ namespace AnswersKit
             answersEvent.PutMethod(loginMethod);
             answersEvent.PutSuccess(loginSucceeded);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogLogin(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogLogin(answersEvent);
         }
 
         public void LogShare(string shareMethod, string contentName, string contentType, string contentId,
@@ -51,7 +51,7 @@ namespace AnswersKit
             answersEvent.PutContentType(contentType);
             answersEvent.PutContentId(contentId);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogShare(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogShare(answersEvent);
         }
 
         public void LogInvite(string inviteMethod, Dictionary<string, object> customAttributes = null)
@@ -59,7 +59,7 @@ namespace AnswersKit
             var answersEvent = new InviteEvent();
             answersEvent.PutMethod(inviteMethod);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogInvite(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogInvite(answersEvent);
         }
 
         public void LogPurchase(decimal itemPrice, string currency, bool purchaseSucceeded, string itemName, string itemType, string itemId, Dictionary<string, object> customAttributes = null)
@@ -73,7 +73,7 @@ namespace AnswersKit
             answersEvent.PutCustomAttributes(customAttributes);
             if (currency != string.Empty)
                 answersEvent.PutCurrency(Currency.GetInstance(currency));
-            Platform.Answers.Instance.LogPurchase(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogPurchase(answersEvent);
         }
 
         public void LogLevelStart(string levelName, Dictionary<string, object> customAttributes = null)
@@ -81,7 +81,7 @@ namespace AnswersKit
             var answersEvent = new LevelStartEvent();
             answersEvent.PutLevelName(levelName);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogLevelStart(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogLevelStart(answersEvent);
         }
 
         public void LogLevelEnd(string levelName, double score, bool levelCompletedSuccesfully,
@@ -92,7 +92,7 @@ namespace AnswersKit
             answersEvent.PutScore(Double.ValueOf(score));
             answersEvent.PutSuccess(levelCompletedSuccesfully);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogLevelEnd(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogLevelEnd(answersEvent);
         }
 
         public void LogAddToCart(decimal itemPrice, string currency, string itemName, string itemType, string itemId, Dictionary<string, object> customAttributes = null)
@@ -105,7 +105,7 @@ namespace AnswersKit
             if (currency != string.Empty)
                 answersEvent.PutCurrency(Currency.GetInstance(currency));
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogAddToCart(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogAddToCart(answersEvent);
         }
 
         public void LogStartCheckout(decimal totalPrice, string currency, int itemCount, Dictionary<string, object> customAttributes = null)
@@ -116,7 +116,7 @@ namespace AnswersKit
             if (currency != string.Empty)
                 answersEvent.PutCurrency(Currency.GetInstance(currency));
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogStartCheckout(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogStartCheckout(answersEvent);
         }
 
         public void LogRating(int rating, string contentName, string contentType, string contentId,
@@ -128,7 +128,7 @@ namespace AnswersKit
             answersEvent.PutContentType(contentType);
             answersEvent.PutContentId(contentId);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogRating(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogRating(answersEvent);
         }
 
         public void LogContentView(string contentName, string contentType, string contentId,
@@ -139,7 +139,7 @@ namespace AnswersKit
             answersEvent.PutContentType(contentType);
             answersEvent.PutContentId(contentId);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogContentView(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogContentView(answersEvent);
         }
 
         public void LogSearch(string query, Dictionary<string, object> customAttributes = null)
@@ -147,14 +147,14 @@ namespace AnswersKit
             var answersEvent = new SearchEvent();
             answersEvent.PutQuery(query);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogSearch(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogSearch(answersEvent);
         }
 
         public void LogCustom(string eventName, Dictionary<string, object> customAttributes = null)
         {
             var answersEvent = new CustomEvent(eventName);
             answersEvent.PutCustomAttributes(customAttributes);
-            Platform.Answers.Instance.LogCustom(answersEvent);
+            Bindings.AnswersKit.Answers.Instance.LogCustom(answersEvent);
         }
     }
 

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{D854DB53-C43F-4F63-8683-ABB4B28DA370}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DigitsKit</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>DigitsKit.Platform</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoTouch\v1.0\Facades\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Digits.cs" />
+    <Compile Include="libDigitsKit.linkwith.cs">
+      <DependentUpon>libDigitsKit.a</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libDigitsKit.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigitsKit\DigitsKit.csproj">
+      <Project>{7659f3db-a196-43d2-b897-0eceb935e961}</Project>
+      <Name>DigitsKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FabricSdk.Touch\FabricSdk.Touch.csproj">
+      <Project>{c1fd9fd1-5a2e-4c7b-95c8-0463bf597506}</Project>
+      <Name>FabricSdk.Touch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FabricSdk\FabricSdk.csproj">
+      <Project>{bb4053fc-3695-490a-83e8-631f0be6b5ee}</Project>
+      <Name>FabricSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TwitterCore.Touch\TwitterCore.Touch.csproj">
+      <Project>{08f5addb-c9c0-4132-a710-caed30232620}</Project>
+      <Name>TwitterCore.Touch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
