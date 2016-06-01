@@ -11,7 +11,7 @@ namespace DigitsKit
 
         public static IDigits Instance => LazyInstance.Value;
 
-        private Digits() : base(new Bindings.DigitsKit.Digits())
+        private Digits() : base(Bindings.DigitsKit.Digits.SharedInstance)
         {
         }
 
@@ -19,51 +19,15 @@ namespace DigitsKit
 
         public void Authenticate(Action<IDigitsSession, ErrorCode> completionAction, bool isEmailRequired = false)
         {
-            
+
             var configuration = new DGTAuthenticationConfiguration(isEmailRequired ? DGTAccountFields.Email : DGTAccountFields.None);
-            Bindings.DigitsKit.Digits.SharedInstance.AuthenticateWithNavigationViewController(null, configuration, new InternalCompletionViewController());
+            var completion = new DGTAuthenticationCompletion((session, error) => completionAction?.Invoke(session == null ? null : new InternalDigitsSession(session), ToErrorCode(error)));
+            Bindings.DigitsKit.Digits.SharedInstance.AuthenticateWithViewController(null, configuration, completion);
         }
 
-        public void StartWithConsumerKey(string consumerKey, string consumerSecret)
+        private ErrorCode ToErrorCode(NSError error)
         {
-            Bindings.DigitsKit.Digits.SharedInstance.StartWithConsumerKey(consumerKey, consumerSecret);
-        }
-
-        public void Initialize()
-        {
-        }
-    }
-
-    internal class InternalDigitsSession : IDigitsSession
-    {
-        public InternalDigitsSession()
-        {
-        }
-
-        public InternalDigitsSession(DGTSession session)
-        {
-            EmailAddress = session.EmailAddress;
-            EmailAddressIsVerified = session.EmailAddressIsVerified;
-            PhoneNumber = session.PhoneNumber;
-            AuthTokenSecret = session.AuthTokenSecret;
-            AuthToken = session.AuthToken;
-            UserId = session.UserID;
-        }
-
-        public string EmailAddress { get; internal set; }
-        public bool EmailAddressIsVerified { get; internal set; }
-        public string PhoneNumber { get; internal set; }
-        public string UserId { get; internal set; }
-        public string AuthTokenSecret { get; internal set; }
-        public string AuthToken { get; internal set; }
-    }
-
-    internal class InternalCompletionViewController : IDGTCompletionViewController
-    {
-        public event Action<IDigitsSession, ErrorCode> OnCompletion;
-
-        public override void Error(DGTSession session, NSError error)
-        {
+            if (error == null) return ErrorCode.UnspecifiedError;
             ErrorCode errorCode;
             switch (error.Code)
             {
@@ -128,8 +92,51 @@ namespace DigitsKit
                     errorCode = ErrorCode.UnspecifiedError;
                     break;
             }
-            
-            OnCompletion?.Invoke(session == null ? null : new InternalDigitsSession(session), errorCode);
+            return errorCode;
+        }
+    }
+
+    internal class InternalDigitsSession : IDigitsSession
+    {
+        public InternalDigitsSession()
+        {
+        }
+
+        public InternalDigitsSession(DGTSession session)
+        {
+            EmailAddress = session.EmailAddress;
+            EmailAddressIsVerified = session.EmailAddressIsVerified;
+            PhoneNumber = session.PhoneNumber;
+            AuthTokenSecret = session.AuthTokenSecret;
+            AuthToken = session.AuthToken;
+            UserId = session.UserID;
+        }
+
+        public string EmailAddress { get; internal set; }
+        public bool EmailAddressIsVerified { get; internal set; }
+        public string PhoneNumber { get; internal set; }
+        public string UserId { get; internal set; }
+        public string AuthTokenSecret { get; internal set; }
+        public string AuthToken { get; internal set; }
+    }
+
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void Initialize(this IDigits digits, string consumerKey, string consumerSecret)
+        {
+            if (_initialized) return;
+            lock (InitializeLock)
+            {
+                if (_initialized) return;
+
+                Fabric.Instance.Kits.Add(digits);
+                Bindings.DigitsKit.Digits.SharedInstance.StartWithConsumerKey(consumerKey, consumerSecret);
+
+                _initialized = true;
+            }
         }
     }
 }

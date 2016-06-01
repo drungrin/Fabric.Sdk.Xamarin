@@ -41,9 +41,6 @@
   <ItemGroup>
     <Compile Include="Fabric.cs" />
     <Compile Include="Kit.cs" />
-    <Compile Include="libFabric.linkwith.cs">
-      <DependentUpon>libFabric.a</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,13 +50,17 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libFabric.a" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FabricSdk\FabricSdk.csproj">
       <Project>{bb4053fc-3695-490a-83e8-631f0be6b5ee}</Project>
       <Name>FabricSdk</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="../../Frameworks/Fabric.framework">
+      <SmartLink>False</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <Kind>Framework</Kind>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

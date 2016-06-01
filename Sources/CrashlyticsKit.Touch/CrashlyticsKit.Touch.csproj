@@ -46,9 +46,6 @@
   <ItemGroup>
     <Compile Include="Answers.cs" />
     <Compile Include="Crashlytics.cs" />
-    <Compile Include="libCrashlytics.linkwith.cs">
-      <DependentUpon>libCrashlytics.a</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +73,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libCrashlytics.a" />
+    <NativeReference Include="..\..\Frameworks\Crashlytics.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+      <LinkerFlags>-lstdc++ -lz</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

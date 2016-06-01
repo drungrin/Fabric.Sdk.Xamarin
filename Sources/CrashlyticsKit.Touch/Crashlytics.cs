@@ -20,9 +20,6 @@ namespace CrashlyticsKit
 
         private Crashlytics() : base(Bindings.CrashlyticsKit.Crashlytics.SharedInstance)
         {            
-            AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
-            
-            TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);            
         }
 
         public static ICrashlytics Instance => LazyInstance.Value;
@@ -96,20 +93,9 @@ namespace CrashlyticsKit
 
         public void RecordException(Exception exception)
         {
-        }
-
-        [DllImport(Constants.ObjectiveCLibrary, EntryPoint = "objc_msgSend")]
-        private static extern void void_objc_msgSend(IntPtr receiver, IntPtr selector);
-
-        private static void UncaughtException(object exeptionObject)
-        {
-            var exception = exeptionObject as Exception;
-            if (exception == null)
-                return;
-
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "unhandled exception stack trace");
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "unhandled exception message");
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "unhandled exception");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "exception stack trace");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "exception message");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "exception");
 
             var stackFrames = new List<CLSStackFrame>();
 
@@ -117,7 +103,7 @@ namespace CrashlyticsKit
             {
                 var cls = match.Groups[1].Value;
                 var method = match.Groups[2].Value;
-                var file = match.Groups[3].Value;                
+                var file = match.Groups[3].Value;
                 var line = Convert.ToInt32(match.Groups[4].Value);
                 if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
                     !cls.StartsWith("System.Runtime.CompilerServices"))
@@ -130,67 +116,47 @@ namespace CrashlyticsKit
                         FileName = file,
                         LineNumber = (uint)line,
                         Symbol = cls + "." + method,
-                        
                     });
                 }
             }
 
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(exception.GetType().Name,  exception.Message, stackFrames.ToArray());
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(exception.GetType().Name, exception.Message, stackFrames.ToArray());
+        }
+    }
 
-            //var nse = new NSException(exception.GetType().Name, exception.Message, null);
-            //var sel = new Selector("raise");
-            //void_objc_msgSend(nse.Handle, sel.Handle);
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void RecordManagedException(object exceptionObject)
+        {
+            var exception = exceptionObject as Exception;
+            if (exception == null)
+                return;
+            
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "managed exception stack trace");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "managed exception message");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "managed exception");
         }
 
-        private void CaptureStackFrames(Exception ex)
+        public static void Initialize(this ICrashlytics crashlytics)
         {
-            var frames = new List<CLSStackFrame>();
-
-            Action<StackTrace> frameWalker = (st) =>
+            if (_initialized) return;
+            lock (InitializeLock)
             {
-                for (int i = 0; i < st.FrameCount; i++)
-                {
-                    StackFrame sf = st.GetFrame(i);
+                if (_initialized) return;
 
-                    string filename = sf.GetFileName();
-                    MethodBase method = sf.GetMethod();
-
-                    string methodName = "";
-                    if (method != null)
-                    {
-                        var tokens = method.ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        //if (tokens.Length > 1)
-                        //    methodName = tokens.Skip(1).Aggregate((a, b) => a + " " + b);
-                        //else
-                        //    methodName = method.ToString();}
-                    }
-
-                    frames.Add(new CLSStackFrame()
-                    {
-                        FileName = filename ?? (method != null ? method.DeclaringType.Name + ".cs" : "uknown"),
-                        LineNumber = (uint)sf.GetFileLineNumber(),
-                        Symbol = method != null ? method.DeclaringType.FullName + "." + methodName : "wrapper_managed_to_native"
-                    });
-                }
-            };
-
-            if (ex != null)
-            {
-                //get traces from exception dispath info - they're are not included in StackTrace on mono
-                StackTrace[] traces = null;
-                var fi = typeof(Exception).GetField("captured_traces", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-                if (fi != null)
-                    traces = fi.GetValue(ex) as StackTrace[];
-
-                if (traces != null)
-                    foreach (var st in traces)
-                        frameWalker(st);
-
-                frameWalker(new StackTrace(ex, true));
-
-                //Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(ex.GetType().Name, ex.Message, frames.Cast<NSObject>().ToArray());
+                Fabric.Instance.Kits.Add(crashlytics);
+                Fabric.Instance.AfterInitialize += Fabric_AfterInitialize;
+                _initialized = true;
             }
+        }
+
+        static void Fabric_AfterInitialize(object sender, EventArgs e)
+        {
+            AppDomain.CurrentDomain.UnhandledException += (s, a) => RecordManagedException(a.ExceptionObject);
+            TaskScheduler.UnobservedTaskException += (s, a) => RecordManagedException(a.Exception);
         }
     }
 }

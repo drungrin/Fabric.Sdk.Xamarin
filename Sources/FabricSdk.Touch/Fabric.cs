@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace FabricSdk
 {
@@ -6,11 +8,16 @@ namespace FabricSdk
     {
         private static readonly Lazy<Fabric> LazyInstance = new Lazy<Fabric>(() => new Fabric());
 
+        public static IFabric Instance => LazyInstance.Value;
+
+        public ICollection<IKit> Kits { get; } = new List<IKit>();
+
+        public event EventHandler BeforeInitialize;
+        public event EventHandler AfterInitialize;
+
         private Fabric()
         {
         }
-
-        public static IFabric Instance => LazyInstance.Value;
 
         public bool Debug
         {
@@ -18,10 +25,35 @@ namespace FabricSdk
             set { Bindings.FabricSdk.Fabric.SharedSDK().Debug = value; }
         }
 
-        public IFabric With(IKit[] kits)
+        internal void Initialize()
         {
-            Bindings.FabricSdk.Fabric.With(Array.ConvertAll(kits, i => i.ToNative()));
-            return this;
+            BeforeInitialize?.Invoke(this, new EventArgs());
+            var kits = Kits.Select(i => i.ToNative()).ToArray();
+            Bindings.FabricSdk.Fabric.With(Kits.Select(i => i.ToNative()).ToArray());
+            AfterInitialize?.Invoke(this, new EventArgs());
+        }
+    }
+
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void Initialize(this IFabric fabric)
+        {
+            if (_initialized) return;
+            lock (InitializeLock)
+            {
+                if (_initialized) return;
+
+                var instance = fabric as Fabric;
+
+                if (instance == null) return;
+
+                instance.Initialize();
+
+                _initialized = true;
+            }
         }
     }
 }

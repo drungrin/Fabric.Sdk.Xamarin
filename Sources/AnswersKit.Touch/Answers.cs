@@ -100,4 +100,24 @@ namespace AnswersKit
             return NSDictionary<NSString, NSObject>.FromObjectsAndKeys(objects, keys);
         }
     }
+
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void Initialize(this IAnswers answers)
+        {
+            if (_initialized) return;
+            lock (InitializeLock)
+            {
+                if (_initialized) return;
+
+                Fabric.Instance.Kits.Add(answers);
+
+                _initialized = true;
+            }
+        }
+    }
+
 }

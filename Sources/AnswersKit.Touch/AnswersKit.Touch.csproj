@@ -45,9 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answers.cs" />
-    <Compile Include="libAnswers.linkwith.cs">
-      <DependentUpon>libAnswers.a</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libAnswers.a" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnswersKit\AnswersKit.csproj">
@@ -72,6 +66,12 @@
       <Project>{bb4053fc-3695-490a-83e8-631f0be6b5ee}</Project>
       <Name>FabricSdk</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\Frameworks\Answers.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
