@@ -1,10 +1,10 @@
 ﻿namespace FabricSdk
 {
-    public abstract class Kit : IKit
+    public class Kit : IKit
     {
         internal Bindings.FabricSdk.Kit NativeKit;
 
-        protected Kit(Bindings.FabricSdk.Kit nativeKit)
+        public Kit(Bindings.FabricSdk.Kit nativeKit)
         {
             NativeKit = nativeKit;
         }

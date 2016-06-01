@@ -164,23 +164,19 @@ namespace CrashlyticsKit
         }
 
         
-        public static void Initialize(this ICrashlytics crashlytics, Context context)
+        public static void Initialize(this ICrashlytics crashlytics)
         {
             if (_uncaughtExceptionHandler != null) return;
             lock (InitializeLock)
             {
                 if (_uncaughtExceptionHandler != null) return;
 
-                var native = (Bindings.CrashlyticsKit.Crashlytics) crashlytics.ToNative();
                 var defaultHandler = Thread.DefaultUncaughtExceptionHandler;
 
                 Thread.DefaultUncaughtExceptionHandler = new DummyExceptionHandler();
 
-                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
-                    .Kits(native)
-                    .Debuggable(Fabric.Instance.Debug)
-                    .Build());
-                
+                Fabric.Instance.Kits.Add(crashlytics);
+
                 _uncaughtExceptionHandler = Thread.DefaultUncaughtExceptionHandler;
                 Thread.DefaultUncaughtExceptionHandler = defaultHandler;
 

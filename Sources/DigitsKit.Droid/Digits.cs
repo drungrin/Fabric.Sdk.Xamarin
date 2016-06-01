@@ -3,6 +3,7 @@ using Android.Content;
 using FabricSdk;
 using Bindings.DigitsKit;
 using Bindings.TwitterSdk.Core;
+using Org.Apache.Http.Authentication;
 using Object = Java.Lang.Object;
 
 namespace DigitsKit
@@ -147,23 +148,20 @@ namespace DigitsKit
         private static readonly object InitializeLock = new object();
         private static bool _initialized;
 
-        public static void Initialize(this IDigits digits, Context context, string consumerKey, string consumerSecret)
+        public static void Initialize(this IDigits digits, string consumerKey, string consumerSecret)
         {
             if (_initialized) return;
             lock (InitializeLock)
             {
-                if (_initialized) return;
+                if (_initialized) return; 
 
-                var native = (Bindings.DigitsKit.Digits)digits.ToNative();
                 var authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
                 var core = new TwitterCore(authConfig);
 
-                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
-                    .Kits(core, native)
-                    .Debuggable(Fabric.Instance.Debug)
-                    .Build());
+                Fabric.Instance.Kits.Add(new Kit(core));
+                Fabric.Instance.Kits.Add(digits);
 
-                _initialized = true;
+                _initialized = true; 
             }
         }
     }
