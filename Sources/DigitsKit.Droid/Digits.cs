@@ -1,9 +1,8 @@
 ﻿using System;
-using Android.App;
+using Android.Content;
 using FabricSdk;
 using Bindings.DigitsKit;
 using Bindings.TwitterSdk.Core;
-using Fabric = Bindings.FabricSdk.Fabric;
 using Object = Java.Lang.Object;
 
 namespace DigitsKit
@@ -25,16 +24,6 @@ namespace DigitsKit
                 var session = Bindings.DigitsKit.Digits.SessionManager.ActiveSession as DigitsSession;
                 return session == null ? null : new InternalDigitsSession(session);
             }
-        }
-
-        public void StartWithConsumerKey(string consumerKey, string consumerSecret)
-        {
-            var authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
-            Fabric.With(Application.Context, new TwitterCore(authConfig));
-        }
-
-        public void Initialize()
-        {
         }
 
         public void Authenticate(Action<IDigitsSession, ErrorCode> completionAction, bool isEmailRequired = false)
@@ -151,5 +140,31 @@ namespace DigitsKit
         }
 
         public event Action<IDigitsSession, ErrorCode> OnCompletion;
+    }
+
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void Initialize(this IDigits digits, Context context, string consumerKey, string consumerSecret)
+        {
+            if (_initialized) return;
+            lock (InitializeLock)
+            {
+                if (_initialized) return;
+
+                var native = (Bindings.DigitsKit.Digits)digits.ToNative();
+                var authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
+                var core = new TwitterCore(authConfig);
+
+                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
+                    .Kits(core, native)
+                    .Debuggable(Fabric.Instance.Debug)
+                    .Build());
+
+                _initialized = true;
+            }
+        }
     }
 }

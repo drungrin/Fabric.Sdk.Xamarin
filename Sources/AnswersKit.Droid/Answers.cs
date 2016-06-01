@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Android.Content;
 using Bindings.AnswersKit;
 using FabricSdk;
 using Java.Lang;
@@ -201,6 +202,30 @@ namespace AnswersKit
                 {
                     answersEvent.PutCustomAttribute(customAttribute.Key, customAttribute.Value?.ToString());
                 }
+            }
+        }
+    }
+
+    public static class Initializer
+    {
+        private static readonly object InitializeLock = new object();
+        private static bool _initialized;
+
+        public static void Initialize(this IAnswers answers, Context context)
+        {
+            if (_initialized) return;
+            lock (InitializeLock)
+            {
+                if (_initialized) return;
+
+                var native = (Bindings.AnswersKit.Answers)answers.ToNative();
+
+                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
+                    .Kits(native)
+                    .Debuggable(Fabric.Instance.Debug)
+                    .Build());
+
+                _initialized = true;
             }
         }
     }

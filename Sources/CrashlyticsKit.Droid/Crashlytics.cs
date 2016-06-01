@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Android.Content;
 using Android.Runtime;
 using FabricSdk;
 using Java.Lang;
 using Exception = System.Exception;
+using String = System.String;
 
 namespace CrashlyticsKit
 {
     public class Crashlytics : Kit, ICrashlytics
     {
-        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s.+[\\/>](.*):(\d+)?");
-
         private static readonly Lazy<Crashlytics> LazyInstance = new Lazy<Crashlytics>(() => new Crashlytics());
+        private static readonly Regex StackTraceRegex = new Regex(@"\s*at\s*(\S+)\.(\S+\(?.*\)?)\s\[0x[\d\w]+\]\sin\s.+[\\/>](.*):(\d+)?");
 
         private Crashlytics() : base(new Bindings.CrashlyticsKit.Crashlytics())
         {
-            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
-            AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
-            TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);
         }
 
         public static ICrashlytics Instance => LazyInstance.Value;
@@ -33,6 +31,10 @@ namespace CrashlyticsKit
 
         public void RecordException(Exception exception)
         {
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception", exception.GetType().FullName);
+
             Bindings.CrashlyticsKit.Crashlytics.LogException(ToThrowable(exception));
         }
 
@@ -96,7 +98,7 @@ namespace CrashlyticsKit
             return this;
         }
 
-        private static Throwable ToThrowable(Exception exception)
+        internal static Throwable ToThrowable(Exception exception)
         {
             while (exception is AggregateException)
                 exception = exception.InnerException;
@@ -105,7 +107,6 @@ namespace CrashlyticsKit
 
             if (throwable != null)
             {
-                throwable.Data.Add("Crashlytics", true);
                 return throwable;
             }
 
@@ -122,7 +123,7 @@ namespace CrashlyticsKit
                 if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
                     !cls.StartsWith("System.Runtime.CompilerServices"))
                 {
-                    if (string.IsNullOrEmpty(file))
+                    if (String.IsNullOrEmpty(file))
                         file = "filename unknown";
 
                     stackTrace.Add(new StackTraceElement(cls, method, file, line));
@@ -137,21 +138,64 @@ namespace CrashlyticsKit
 
             return throwable;
         }
+    }
+
+    public static class Initializer
+    {
+        private static Thread.IUncaughtExceptionHandler _uncaughtExceptionHandler;
+        private static readonly object InitializeLock = new object();
 
         private static void UncaughtException(object exeptionObject)
         {
             var exception = exeptionObject as Exception;
             if (exception == null)
                 return;
-            if (exception.Data.Contains("Crashlytics"))
-                return;
 
-            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception stack trace", exception.StackTrace);
-            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception message", exception.Message);
-            Bindings.CrashlyticsKit.Crashlytics.SetString("unhandled exception", exception.GetType().FullName);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception stack trace", exception.StackTrace);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception message", exception.Message);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception", exception.GetType().FullName);
 
-            var handler = Thread.DefaultUncaughtExceptionHandler;
-            handler.UncaughtException(Thread.CurrentThread(), ToThrowable(exception));                
+            var throwable = Crashlytics.ToThrowable(exception);
+
+            _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
+
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            Environment.Exit(10);
+        }
+
+        
+        public static void Initialize(this ICrashlytics crashlytics, Context context)
+        {
+            if (_uncaughtExceptionHandler != null) return;
+            lock (InitializeLock)
+            {
+                if (_uncaughtExceptionHandler != null) return;
+
+                var native = (Bindings.CrashlyticsKit.Crashlytics) crashlytics.ToNative();
+                var defaultHandler = Thread.DefaultUncaughtExceptionHandler;
+
+                Thread.DefaultUncaughtExceptionHandler = new DummyExceptionHandler();
+
+                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
+                    .Kits(native)
+                    .Debuggable(Fabric.Instance.Debug)
+                    .Build());
+                
+                _uncaughtExceptionHandler = Thread.DefaultUncaughtExceptionHandler;
+                Thread.DefaultUncaughtExceptionHandler = defaultHandler;
+
+                AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
+                AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
+                TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);
+            }
+        }
+    }
+
+    internal class DummyExceptionHandler : Java.Lang.Object, Thread.IUncaughtExceptionHandler
+    {
+        public void UncaughtException(Thread thread, Throwable ex)
+        {
+
         }
     }
 }

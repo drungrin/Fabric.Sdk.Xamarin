@@ -1,13 +1,12 @@
 ﻿using System;
+using FabricSdk;
 
 namespace DigitsKit
 {
-    public interface IDigits
+    public interface IDigits : IKit
     {
         IDigitsSession Session { get; }
-        void Authenticate(Action<IDigitsSession, ErrorCode> completionAction, bool isEmailRequired = false);
-        void StartWithConsumerKey(string consumerKey, string consumerSecret);
-        void Initialize();
+        void Authenticate(Action<IDigitsSession, ErrorCode> completionAction, bool isEmailRequired = false);    
     }
 
     public enum ErrorCode
