@@ -21,3 +21,5 @@ For crashlytics on android, there is a hidden configuration, you need to add/upd
 Or else you'll get a crash on startup.
 
 There is a Sample available on Samples folder.
+
+On iOS, Crashlytics shouldn't be used with Answers. Crashlytics includes Answers, so you should use either.
