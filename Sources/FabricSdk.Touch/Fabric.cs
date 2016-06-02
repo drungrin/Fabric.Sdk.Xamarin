@@ -28,7 +28,6 @@ namespace FabricSdk
         internal void Initialize()
         {
             BeforeInitialize?.Invoke(this, new EventArgs());
-            var kits = Kits.Select(i => i.ToNative()).ToArray();
             Bindings.FabricSdk.Fabric.With(Kits.Select(i => i.ToNative()).ToArray());
             AfterInitialize?.Invoke(this, new EventArgs());
         }
