@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-  <metadata minClientVersion="2.8.1">
+  <metadata>
     <id>Crashlytics</id>
     <version>1.0</version>
     <title>Crashlytics</title>
@@ -20,27 +20,29 @@
   </metadata>
   <files>
     <!-- PCL -->
-    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
-          target="lib\portable-net45+netcore45+wpa81\CrashlyticsKit.dll" />
-    <file src="..\Sources\CrashlyticsKit.Pcl\bin\Release\CrashlyticsKit.Platform.dll"
-          target="lib\portable-net45+netcore45+wpa81\CrashlyticsKit.Platform.dll" />
+    <file src="Sources/CrashlyticsKit/bin/Release/CrashlyticsKit.dll"
+          target="lib/portable-net45+win+wp80+MonoTouch10+MonoAndroid10+xamarinmac20+xamarintvos10+xamarinwatchos10+xamarinios10/CrashlyticsKit.dll" />
+    <file src="Sources/CrashlyticsKit.Pcl/bin/Release/CrashlyticsKit.Platform.dll"
+          target="lib/portable-net45+win+wp80+MonoTouch10+MonoAndroid10+xamarinmac20+xamarintvos10+xamarinwatchos10+xamarinios10/CrashlyticsKit.Platform.dll" />
 
     <!-- Xamarin.Android -->
-    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
-          target="lib\MonoAndroid10\AnswersKit.dll" />
-    <file src="..\Sources\AnswersKit.Droid\bin\Release\AnswersKit.Platform.dll"
-          target="lib\MonoAndroid10\AnswersKit.Platform.dll" />
-    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
-          target="lib\MonoAndroid10\CrashlyticsKit.dll" />
-    <file src="..\Sources\CrashlyticsKit.Droid\bin\Release\CrashlyticsKit.Platform.dll"
-          target="lib\MonoAndroid10\CrashlyticsKit.Platform.dll" />
+    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+          target="lib/MonoAndroid10/AnswersKit.dll" />
+    <file src="Sources/AnswersKit.Droid/bin/Release/AnswersKit.Platform.dll"
+          target="lib/MonoAndroid10/AnswersKit.Platform.dll" />
+    <file src="Sources/CrashlyticsKit/bin/Release/CrashlyticsKit.dll"
+          target="lib/MonoAndroid10/CrashlyticsKit.dll" />
+    <file src="Sources/CrashlyticsKit.Droid/bin/Release/CrashlyticsKit.Platform.dll"
+          target="lib/MonoAndroid10/CrashlyticsKit.Platform.dll" />
 
     <!-- Xamarin.iOS -->
-    <file src="..\Sources\AnswersKit\bin\Release\AnswersKit.dll"
-      target="lib\Xamarin.iOS10\AnswersKit.dll" />
-    <file src="..\Sources\CrashlyticsKit\bin\Release\CrashlyticsKit.dll"
-          target="lib\Xamarin.iOS10\CrashlyticsKit.dll" />
-    <file src="..\Sources\CrashlyticsKit.Touch\bin\Release\CrashlyticsKit.Platform.dll"
-          target="lib\Xamarin.iOS10\CrashlyticsKit.Platform.dll" />
+    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+          target="lib/Xamarin.iOS10/AnswersKit.dll" />
+    <file src="Sources/CrashlyticsKit.Answers.Touch/bin/Release/AnswersKit.Platform.dll"
+          target="lib/Xamarin.iOS10/AnswersKit.Platform.dll" />
+    <file src="Sources/CrashlyticsKit/bin/Release/CrashlyticsKit.dll"
+          target="lib/Xamarin.iOS10/CrashlyticsKit.dll" />
+    <file src="Sources/CrashlyticsKit.Touch/bin/Release/CrashlyticsKit.Platform.dll"
+          target="lib/Xamarin.iOS10/CrashlyticsKit.Platform.dll" />
   </files>
 </package>
