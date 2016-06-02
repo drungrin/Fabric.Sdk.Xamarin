@@ -44,7 +44,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answers.cs" />
     <Compile Include="Crashlytics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

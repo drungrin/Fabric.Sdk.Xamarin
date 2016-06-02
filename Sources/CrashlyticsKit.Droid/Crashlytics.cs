@@ -111,7 +111,6 @@ namespace CrashlyticsKit
             }
 
             throwable = new Throwable(exception.Message);
-            throwable.Data.Add("Crashlytics", true);
 
             var stackTrace = new List<StackTraceElement>();
             foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
@@ -141,9 +140,11 @@ namespace CrashlyticsKit
     }
 
     public static class Initializer
-    {
-        private static Thread.IUncaughtExceptionHandler _uncaughtExceptionHandler;
+    {        
         private static readonly object InitializeLock = new object();
+        private static Thread.IUncaughtExceptionHandler _defaultExceptionHandler;
+        private static Thread.IUncaughtExceptionHandler _uncaughtExceptionHandler;
+        private static bool _initialized;
 
         private static void UncaughtException(object exeptionObject)
         {
@@ -158,7 +159,6 @@ namespace CrashlyticsKit
             var throwable = Crashlytics.ToThrowable(exception);
 
             _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
-
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             Environment.Exit(10);
         }
@@ -166,24 +166,34 @@ namespace CrashlyticsKit
         
         public static void Initialize(this ICrashlytics crashlytics)
         {
-            if (_uncaughtExceptionHandler != null) return;
+            if (_initialized) return;
             lock (InitializeLock)
             {
-                if (_uncaughtExceptionHandler != null) return;
-
-                var defaultHandler = Thread.DefaultUncaughtExceptionHandler;
-
-                Thread.DefaultUncaughtExceptionHandler = new DummyExceptionHandler();
+                if (_initialized) return;
 
                 Fabric.Instance.Kits.Add(crashlytics);
+                Fabric.Instance.BeforeInitialize += Fabric_BeforeInitialize;
+                Fabric.Instance.AfterInitialize += Fabric_AfterInitialize;
 
-                _uncaughtExceptionHandler = Thread.DefaultUncaughtExceptionHandler;
-                Thread.DefaultUncaughtExceptionHandler = defaultHandler;
+                _initialized = true;
 
-                AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) => UncaughtException(args.Exception);
-                AppDomain.CurrentDomain.UnhandledException += (sender, args) => UncaughtException(args.ExceptionObject);
-                TaskScheduler.UnobservedTaskException += (sender, args) => UncaughtException(args.Exception);
             }
+        }
+        static void Fabric_BeforeInitialize(object sender, EventArgs e)
+        {
+            _defaultExceptionHandler = Thread.DefaultUncaughtExceptionHandler;
+
+            Thread.DefaultUncaughtExceptionHandler = new DummyExceptionHandler();
+        }
+
+        static void Fabric_AfterInitialize(object sender, EventArgs e)
+        {
+            _uncaughtExceptionHandler = Thread.DefaultUncaughtExceptionHandler;
+            Thread.DefaultUncaughtExceptionHandler = _defaultExceptionHandler;
+
+            AndroidEnvironment.UnhandledExceptionRaiser += (s, a) => UncaughtException(a.Exception);
+            AppDomain.CurrentDomain.UnhandledException += (s, a) => UncaughtException(a.ExceptionObject);
+            TaskScheduler.UnobservedTaskException += (s, a) => UncaughtException(a.Exception);
         }
     }
 

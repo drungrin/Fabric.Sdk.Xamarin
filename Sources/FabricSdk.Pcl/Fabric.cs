@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FabricSdk
 {
@@ -13,7 +14,18 @@ namespace FabricSdk
 
         public static IFabric Instance => LazyInstance.Value;
 
-        public bool Debug { get; set; }       
+        public bool Debug { get; set; }
+
+        public ICollection<IKit> Kits
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public event EventHandler AfterInitialize;
+        public event EventHandler BeforeInitialize;
 
         public IFabric With(IKit[] kits)
         {
