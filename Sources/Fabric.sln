@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gson.Droid", "Gson.Droid\Gs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Pcl", "DigitsKit.Pcl\DigitsKit.Pcl.csproj", "{964823A7-BE1B-4DB3-8804-5AAE669E7595}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Answers.Touch", "CrashlyticsKit.Answers.Touch\CrashlyticsKit.Answers.Touch.csproj", "{1587379F-4BE6-4651-BD52-5AF818C2EC74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -170,6 +172,12 @@ Global
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
