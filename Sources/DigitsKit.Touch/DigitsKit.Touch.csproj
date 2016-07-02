@@ -38,9 +38,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Digits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="libDigitsKit.linkwith.cs">
@@ -72,216 +69,78 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTAssistedAuthViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTAssistedAuthViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTAuthViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTAuthViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTChallengeViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTChallengeViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTCodeField.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTCodeField.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTCountryTableViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTCountryTableViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTEmailViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTEmailViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTPinCodeFormViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTPinCodeFormViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTUploadContactsViewController.nib">
-      <Link>Resources\DigitsKitResources.bundle\DGTUploadContactsViewController.nib</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\addressbook-find-friends.png">
-      <Link>Resources\DigitsKitResources.bundle\addressbook-find-friends.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\addressbook-find-friends%402x.png">
-      <Link>Resources\DigitsKitResources.bundle\addressbook-find-friends%402x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\addressbook-find-friends%403x.png">
-      <Link>Resources\DigitsKitResources.bundle\addressbook-find-friends%403x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\country-codes.json">
-      <Link>Resources\DigitsKitResources.bundle\country-codes.json</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-icon-mid.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-icon-mid.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-icon.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-icon.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-icon%402x.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-icon%402x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-icon%403x.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-icon%403x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-name-mid.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-name-mid.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-name.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-name.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-name%402x.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-name%402x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\digits-logo-name%403x.png">
-      <Link>Resources\DigitsKitResources.bundle\digits-logo-name%403x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\unable-phone.png">
-      <Link>Resources\DigitsKitResources.bundle\unable-phone.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\unable-phone%402x.png">
-      <Link>Resources\DigitsKitResources.bundle\unable-phone%402x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\unable-phone%403x.png">
-      <Link>Resources\DigitsKitResources.bundle\unable-phone%403x.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\TFSScribe.momd\TFSScribe.mom">
-      <Link>Resources\DigitsKitResources.bundle\TFSScribe.momd\TFSScribe.mom</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\TFSScribe.momd\VersionInfo.plist">
-      <Link>Resources\DigitsKitResources.bundle\TFSScribe.momd\VersionInfo.plist</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ar.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ar.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\bg.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\bg.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\bn.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\bn.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ca.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ca.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\cs.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\cs.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\da.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\da.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\de.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\de.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\el.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\el.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\en-gb.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\en-gb.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\en.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\en.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\es.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\es.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\fa.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\fa.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\fi.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\fi.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\fr.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\fr.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\gu.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\gu.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\he.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\he.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\hi.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\hi.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\hr.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\hr.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\hu.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\hu.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\id.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\id.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\it.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\it.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ja.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ja.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\kn.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\kn.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ko.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ko.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\mr.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\mr.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ms.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ms.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\nb.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\nb.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\nl.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\nl.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\pl.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\pl.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\pt.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\pt.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ro.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ro.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ru.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ru.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\sk.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\sk.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\sr.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\sr.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\sv.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\sv.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ta.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ta.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\th.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\th.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\tl.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\tl.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\tr.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\tr.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\uk.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\uk.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\ur.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\ur.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\vi.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\vi.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\zh-Hans.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\zh-Hans.lproj\Localizable.strings</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\zh-Hant.lproj\Localizable.strings">
-      <Link>Resources\DigitsKitResources.bundle\zh-Hant.lproj\Localizable.strings</Link>
-    </BundleResource>
+    <ObjcBindingNativeLibrary Include="libDigitsKit.a" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libDigitsKit.a" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTAssistedAuthViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTAuthViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTChallengeViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTCodeField.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTCountryTableViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTEmailViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTPinCodeFormViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\DGTUploadContactsViewController.nib" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\addressbook-find-friends.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\addressbook-find-friends%402x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\addressbook-find-friends%403x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\country-codes.json" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-icon-mid.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-icon.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-icon%402x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-icon%403x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-name-mid.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-name.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-name%402x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\digits-logo-name%403x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\unable-phone.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\unable-phone%402x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\unable-phone%403x.png" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\TFSScribe.momd\TFSScribe.mom" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\TFSScribe.momd\VersionInfo.plist" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ar.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\bg.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\bn.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ca.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\cs.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\da.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\de.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\el.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\en-gb.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\es.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\fa.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\fi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\fr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\gu.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\he.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\hi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\hr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\hu.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\id.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\it.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ja.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\kn.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ko.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\mr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ms.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\nb.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\nl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\pl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\pt.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ro.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ru.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\sk.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\sr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\sv.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ta.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\th.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\tl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\tr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\uk.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\ur.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\vi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\zh-Hans.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\DigitsKitResources.bundle\zh-Hant.lproj\Localizable.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
