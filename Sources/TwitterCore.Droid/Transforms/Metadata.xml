@@ -1,42 +1,51 @@
-﻿<metadata>
-  <!-- Visibility -->
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Entity']" name="visibility">public</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.identity']/interface[@name='OAuthController.Listener']" name="visibility">public</attr>
-  <!-- Returns and Parameters -->
-  <attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AppSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">Java.Lang.Object</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AuthTokenAdapter']/method[@name='deserialize' and count(parameter)=3 and parameter[1][@type='com.google.gson.JsonElement'] and parameter[2][@type='java.lang.reflect.Type'] and parameter[3][@type='com.google.gson.JsonDeserializationContext']]" name="return">Java.Lang.Object</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AuthTokenAdapter']/method[@name='serialize' and count(parameter)=3 and parameter[1][@type='com.twitter.sdk.android.core.AuthToken'] and parameter[2][@type='java.lang.reflect.Type'] and parameter[3][@type='com.google.gson.JsonSerializationContext']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">Java.Lang.Object</attr>
-  <attr path="//field[starts-with(@type, 'com.twitter.sdk.android.core.internal')]" name="type">Java.Lang.Object</attr>
-  <attr path="//parameter[starts-with(@type, 'com.twitter.sdk.android.core.internal')]" name="type">Java.Lang.Object</attr>
-  <!-- Method Overrides -->
-  <attr
-    path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterCore']/method[@name='doInBackground' and count(parameter)=0]"
-    name="return">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<!-- Visibility -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Entity']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.identity']/class[@name='OAuthController']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.identity']/interface[@name='OAuthController.Listener']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.identity']/class[@name='OAuthWebViewClient']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.identity']/interface[@name='OAuthWebViewClient.Listener']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/class[@name='OAuthService']" name="visibility">public</attr>
+	<!-- Returns and Parameters -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AppSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AuthTokenAdapter']/method[@name='deserialize' and count(parameter)=3 and parameter[1][@type='com.google.gson.JsonElement'] and parameter[2][@type='java.lang.reflect.Type'] and parameter[3][@type='com.google.gson.JsonDeserializationContext']]" name="return">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='AuthTokenAdapter']/method[@name='serialize' and count(parameter)=3 and parameter[1][@type='com.twitter.sdk.android.core.AuthToken'] and parameter[2][@type='java.lang.reflect.Type'] and parameter[3][@type='com.google.gson.JsonSerializationContext']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeEvent.Transform']/method[@name='toBytes' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.internal.scribe.ScribeEvent']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<!-- Method Overrides -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']/class[@name='TwitterCore']/method[@name='doInBackground' and count(parameter)=0]" name="return">
     java.lang.Object
   </attr>
-
-  <!-- Class Renames -->
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterApiConstants.Errors']" name="managedName">TwitterApiConstants.ErrorConsts</attr>
-  <!-- Removals -->
-  <remove-node path="//*[@deprecated='deprecated']" />
-  <!--<remove-node path="/api/package[starts-with(@name, 'com.twitter.sdk.android.core.internal')]/*"/>-->
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Coordinates']/field[@name='coordinates']"/>
-  <!--<remove-node path="//implements[starts-with(@name, 'com.twitter.sdk.android.core.internal')]" />-->
-
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/class[@name='OAuth1aService']"/>
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/class[@name='OAuth2Service']" />
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/interface[@name='OAuth1aService.OAuthApi']"/>  
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']/interface[@name='OAuth2Service.OAuth2Api']" />
-  <remove-node path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='DefaultScribeClient']/method[@name='scribe' and count(parameter)=1 and parameter[1][@type='Java.Lang.Object']]"/>
-  <!-- Namespaces -->
-  <attr path="/api/package[@name='com.twitter.sdk.android.core']" name="managedName">Bindings.TwitterSdk.Core</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.identity']" name="managedName">Bindings.TwitterSdk.Core.Identity</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.internal']" name="managedName">Bindings.TwitterSdk.Core.Internal</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']" name="managedName">Bindings.TwitterSdk.Core.Internal.OAuth</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']" name="managedName">Bindings.TwitterSdk.Core.Internal.Scribe</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.internal.util']" name="managedName">Bindings.TwitterSdk.Core.Internal.Util</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.models']" name="managedName">Bindings.TwitterSdk.Core.Models</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.services']" name="managedName">Bindings.TwitterSdk.Core.Services</attr>
-  <attr path="/api/package[@name='com.twitter.sdk.android.core.services.params']" name="managedName">Bindings.TwitterSdk.Core.Services.Params</attr>
+	<!-- Class Renames -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterApiConstants.Errors']" name="managedName">TwitterApiConstantsErrors</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection.TimelineItem.TweetItem']" name="managedName">TwitterCollection.TimelineItemTweetItem</attr>
+    <attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection.Metadata.Position']" name="managedName">TwitterCollectionMetadataPosition</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterCollection.Metadata']" name="managedName">TwitterCollectionMetadata</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='SessionMonitor.MonitorState']" name="managedName">SessionMonitorMonitorState</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.services.params']/class[@name='Geocode.Distance']" name="managedName">GeocodeDistance</attr>
+    <attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='MediaEntity.Sizes']" name="managedName">MediaEntitySizes</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='MediaEntity.Sizes']" name="managedName">MediaEntitySizes</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='SyndicationClientEvent.ExternalIds']" name="managedName">SyndicationClientEventExternalIds</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='SyndicatedSdkImpressionEvent.ExternalIds']" name="managedName">SyndicatedSdkImpressionEventExternalIds</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeItem.MediaDetails']" name="managedName">ScribeItemMediaDetails</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeItem.CardEvent']" name="managedName">ScribeItemCardEvent</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']/class[@name='ScribeConfig']/field[@name='BASE_URL']" name="managedName">DefaultBaseUrl</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']/class[@name='TwitterApi']/field[@name='BASE_HOST_URL']" name="managedName">DefaultBaseHostUrl</attr>   
+	<!-- Removals -->
+	<remove-node path="//*[@deprecated='deprecated']" />
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Coordinates']/field[@name='coordinates']" />
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='User']/field[@name='id']" />
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Tweet']/field[@name='id']" />
+	<remove-node path="/api/package[@name='com.twitter.sdk.android.core.models']/class[@name='Place']/field[@name='boundingBox']" />
+	<!-- Namespaces -->
+	<attr path="/api/package[@name='com.twitter.sdk.android.core']" name="managedName">Bindings.TwitterSdk.Core</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.identity']" name="managedName">Bindings.TwitterSdk.Core.Identity</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal']" name="managedName">Bindings.TwitterSdk.Core.Internal</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.oauth']" name="managedName">Bindings.TwitterSdk.Core.Internal.OAuth</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.scribe']" name="managedName">Bindings.TwitterSdk.Core.Internal.Scribe</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.internal.util']" name="managedName">Bindings.TwitterSdk.Core.Internal.Util</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.models']" name="managedName">Bindings.TwitterSdk.Core.Models</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.services']" name="managedName">Bindings.TwitterSdk.Core.Services</attr>
+	<attr path="/api/package[@name='com.twitter.sdk.android.core.services.params']" name="managedName">Bindings.TwitterSdk.Core.Services.Params</attr>
 </metadata>
