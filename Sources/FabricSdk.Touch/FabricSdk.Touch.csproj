@@ -42,6 +42,9 @@
     <Compile Include="Fabric.cs" />
     <Compile Include="Kit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libFabric.linkwith.cs">
+      <DependentUpon>libFabric.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -56,11 +59,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="../../Frameworks/Fabric.framework">
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <Kind>Framework</Kind>
-    </NativeReference>
+    <ObjcBindingNativeLibrary Include="libFabric.a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
