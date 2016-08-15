@@ -23,3 +23,5 @@ Or else you'll get a crash on startup ("Unable to extract Crashlytics build info
 There is a Sample available on Samples folder.
 
 On iOS, Crashlytics shouldn't be used with Answers. Crashlytics includes Answers, so you should use either.
+
+[Dropping .apk in Android Studio plugin for Beta] (https://github.com/drungrin/Fabric.Sdk.Xamarin/issues/7)
