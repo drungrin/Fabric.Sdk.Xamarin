@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\digits-1.11.1.aar" />
+    <LibraryProjectZip Include="Jars\digits-2.0.0.aar" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
