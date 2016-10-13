@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Pcl", "DigitsKit.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Answers.Touch", "CrashlyticsKit.Answers.Touch\CrashlyticsKit.Answers.Touch.csproj", "{1587379F-4BE6-4651-BD52-5AF818C2EC74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkIo.Droid", "OkIo.Droid\OkIo.Droid.csproj", "{32A455BD-B4A7-4909-935B-8424FC64670E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkHttp.Droid", "OkHttp.Droid\OkHttp.Droid.csproj", "{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -178,6 +182,18 @@ Global
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A455BD-B4A7-4909-935B-8424FC64670E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

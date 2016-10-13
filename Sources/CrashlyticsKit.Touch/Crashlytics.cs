@@ -91,6 +91,12 @@ namespace CrashlyticsKit
             return this;
         }
 
+		public ICrashlytics Log(string msg)
+		{
+			CLSLog(msg);
+			return this;
+		}
+
         public void RecordException(Exception exception)
         {
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "exception stack trace");
@@ -122,7 +128,55 @@ namespace CrashlyticsKit
 
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(exception.GetType().Name, exception.Message, stackFrames.ToArray());
         }
-    }
+
+		// extern void CLSLog (NSString * format, ...);
+		[DllImport("__Internal", EntryPoint = "CLSLog")]
+		//[Verify (PlatformInvoke)]
+		internal static extern void __CLSLog(IntPtr format, string arg0);
+
+		// extern void CLSLog (NSString * format, ...);
+		[DllImport("__Internal", EntryPoint = "CLSLog")]
+		//[Verify (PlatformInvoke)]
+		internal static extern void __CLSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
+
+		// extern void CLSLogv (NSString * format, va_list ap);
+		[DllImport("__Internal")]
+		//[Verify (PlatformInvoke)]
+		internal static extern unsafe void CLSLogv(IntPtr format, sbyte* ap);
+
+		// extern void CLSNSLog (NSString * format, ...);
+		[DllImport("__Internal", EntryPoint = "CLSNSLog")]
+		//[Verify (PlatformInvoke)]
+		internal static extern void __CLSNSLog(IntPtr format, string arg0);
+
+		// extern void CLSNSLog (NSString * format, ...);
+		[DllImport("__Internal", EntryPoint = "CLSNSLog")]
+		//[Verify (PlatformInvoke)]
+		internal static extern void __CLSNSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
+
+		// extern void CLSNSLogv (NSString * format, va_list ap);
+		[DllImport("__Internal")]
+		//[Verify (PlatformInvoke)]
+		internal static extern unsafe void CLSNSLogv(IntPtr format, sbyte* ap);
+
+		public void CLSLog(string format, params object[] arg)
+		{
+			using (var nsFormat = new NSString(string.Format(format, arg)))
+				if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
+					__CLSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
+				else
+					__CLSLog(nsFormat.Handle, "");
+		}
+
+		public void CLSNSLog(string format, params object[] arg)
+		{
+			using (var nsFormat = new NSString(string.Format(format, arg)))
+				if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
+					__CLSNSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
+				else
+					__CLSNSLog(nsFormat.Handle, "");
+		}
+	}
 
     public static class Initializer
     {

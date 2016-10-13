@@ -19,7 +19,7 @@ namespace FabricSdk
         public ICollection<IKit> Kits
         {
             get
-            {
+            {                
                 throw new NotImplementedException();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using Foundation;
 
 namespace FabricSdk
 {
@@ -28,7 +29,10 @@ namespace FabricSdk
         internal void Initialize()
         {
             BeforeInitialize?.Invoke(this, new EventArgs());
-            Bindings.FabricSdk.Fabric.With(Kits.Select(i => i.ToNative()).ToArray());
+			var nativeKits = new List<NSObject>();
+			foreach (var kit in Kits)
+				nativeKits.Add(kit.ToNative());
+			Bindings.FabricSdk.Fabric.With(nativeKits.ToArray());
             AfterInitialize?.Invoke(this, new EventArgs());
         }
     }
