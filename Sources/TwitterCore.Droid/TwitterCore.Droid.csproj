@@ -63,12 +63,20 @@
       <Project>{8FA30B29-B1D2-42F9-A226-0701F61FC037}</Project>
       <Name>FabricSdk.Droid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OkHttp.Droid\OkHttp.Droid.csproj">
+      <Project>{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}</Project>
+      <Name>OkHttp.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OkIo.Droid\OkIo.Droid.csproj">
+      <Project>{32A455BD-B4A7-4909-935B-8424FC64670E}</Project>
+      <Name>OkIo.Droid</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Jars\twitter-core-2.0.0.aar" />
+    <LibraryProjectZip Include="Jars\twitter-core-2.0.0.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

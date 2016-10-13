@@ -82,12 +82,8 @@
   </Target>
   -->
   <ItemGroup>
-    <InputJar Include="Jars\beta-1.2.2.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <InputJar Include="Jars\crashlytics-2.6.2.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <InputJar Include="Jars\crashlytics-core-2.3.11.jar" />
+    <EmbeddedJar Include="Jars\beta-1.2.2.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-2.6.2.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-core-2.3.11.jar" />
   </ItemGroup>
 </Project>

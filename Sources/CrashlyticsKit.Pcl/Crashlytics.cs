@@ -72,6 +72,11 @@ namespace CrashlyticsKit
             throw new CrashlyticsPlatformNotSupportedException();
         }
 
+		public ICrashlytics Log(string msg)
+		{
+			throw new CrashlyticsPlatformNotSupportedException();
+		}
+
         public void RecordException(Exception exception)
         {
             throw new CrashlyticsPlatformNotSupportedException();

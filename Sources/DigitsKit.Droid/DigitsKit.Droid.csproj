@@ -65,8 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\digits-2.0.0.aar" />
     <None Include="packages.config" />
+    <LibraryProjectZip Include="Jars\digits-2.0.0.aar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -98,6 +98,20 @@
       <Project>{2e690e9f-af91-435e-9a10-1b2762e631db}</Project>
       <Name>TwitterCore.Droid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OkHttp.Droid\OkHttp.Droid.csproj">
+      <Project>{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}</Project>
+      <Name>OkHttp.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OkIo.Droid\OkIo.Droid.csproj">
+      <Project>{32A455BD-B4A7-4909-935B-8424FC64670E}</Project>
+      <Name>OkIo.Droid</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\aswers-shim-0.0.4.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
