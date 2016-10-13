@@ -29,6 +29,8 @@ namespace CrashlyticsKit
 
         ICrashlytics SetLongValue(string key, long value);
 
+		ICrashlytics Log(string msg);
+
         void RecordException(Exception exception);
     }
 }

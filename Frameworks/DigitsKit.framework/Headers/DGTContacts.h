@@ -6,10 +6,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DGTContactAccessAuthorizationStatus.h"
+#import "DGTContactsDebugConfiguration.h"
+#import "DGTInviteFlowConfiguration.h"
 
 @class DGTAppearance;
 @class DGTContactsUploadResult;
 @class DGTSession;
+@class DGTInviteFlowConfiguration;
 
 /**
  *  Block type called after the Digits upload contacts flow is complete.
@@ -34,7 +37,40 @@ typedef void (^DGTLookupContactsCompletion)(NSArray *matches, NSString *nextCurs
  */
 typedef void (^DGTDeleteAllUploadedContactsCompletion)(NSError *error);
 
+
+/**
+ *  Block type called after users exit from the invitation flow started from 
+ *  startInvitationFlowWithPresenterViewController API call
+ *
+ *  error is non-nil in case the flow can not be started (for example being denied to read from address book).
+ */
+typedef void (^DGTInvitationFlowCompletion)(NSError *error);
+
+
+@protocol DGTContactsPickerActionEventDelegate <NSObject>
+@optional
+
+/**
+ *  Called when the user finishes the action of sending the sms invite message to a contact.
+ *  
+ *  contactName is the display name of that contact entry from the address book
+ *  phoneNumber is the target phone number the invite sms is sent to.
+ */
+- (void)inviteSMSSentToContact:(NSString *)contactName withPhoneNumber:(NSString *)phoneNumber;
+@end
+
+
 @interface DGTContacts : NSObject
+
+/**
+ *  Configuration to override Contacts behavior. e.g. provide a list of contacts that will be used instead of making a real upload request.
+ */
+@property (nonatomic, strong) DGTContactsDebugConfiguration *uploadDebugOverrides;
+
+/**
+ *  Configuration to override Contacts behavior. e.g. provide a list of contacts that will be used instead of making a real lookup request.
+ */
+@property (nonatomic, strong) DGTContactsDebugConfiguration *lookupDebugOverrides;
 
 /**
  *  @return The user's Address Book authorization status for this app.
@@ -99,5 +135,4 @@ typedef void (^DGTDeleteAllUploadedContactsCompletion)(NSError *error);
  *  @param completion        Block called after the delete all uploaded contacts request has finished.
  */
 - (void)deleteAllUploadedContactsWithCompletion:(DGTDeleteAllUploadedContactsCompletion)completion;
-
 @end

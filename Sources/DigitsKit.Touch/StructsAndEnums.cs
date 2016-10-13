@@ -36,11 +36,10 @@ namespace Bindings.DigitsKit
     }
 
     [Native]
-    public enum DGTContactAccessAuthorizationStatus : int
+    public enum DGTContactAccessAuthorizationStatus : ulong
     {
         Pending = 0,
         Denied = 1,
         Accepted = 2
     }
 }
-

@@ -9,13 +9,13 @@
 @import AddressBook;
 @import Foundation;
 @import UIKit;
+@import TwitterCore;
 #else
 #import <AddressBook/AddressBook.h>
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
-#endif
-
 #import <TwitterCore/TwitterCore.h>
+#endif
 
 #if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
@@ -31,12 +31,17 @@
 #endif
 
 #import "DGTAPIClient.h"
+#import "DGTAuthEventDelegate.h"
+#import "DGTContactsEventDelegate.h"
+#import "DGTAuthEventDetails.h"
 #import "DGTAuthenticateButton.h"
 #import "DGTAuthenticationConfiguration.h"
 #import "DGTCompletionViewController.h"
 #import "DGTContactAccessAuthorizationStatus.h"
 #import "DGTContacts.h"
+#import "DGTContactsDebugConfiguration.h"
 #import "DGTContactsUploadResult.h"
+#import "DGTDebugConfiguration.h"
 #import "DGTUser.h"
 #import "DGTAppearance.h"
 #import "DGTErrors.h"

@@ -98,6 +98,13 @@ namespace CrashlyticsKit
             return this;
         }
 
+		public ICrashlytics Log(string msg)
+		{
+			Bindings.CrashlyticsKit.Crashlytics.Log(msg);
+			return this;
+		}
+
+
         internal static Throwable ToThrowable(Exception exception)
         {
             while (exception is AggregateException)

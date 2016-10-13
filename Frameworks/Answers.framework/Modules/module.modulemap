@@ -3,4 +3,6 @@ framework module Answers {
     header "ANSCompatibility.h"
 
     export *
+
+    link "z"
 }

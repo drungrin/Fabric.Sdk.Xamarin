@@ -50,7 +50,10 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\gson-2.2.4.jar" />
+    <Folder Include="Jars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\gson-2.6.1.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -38,9 +38,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Digits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,8 +69,8 @@
     <NativeReference Include="..\..\Frameworks\DigitsKit.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
+      <Frameworks>AddressBook SafariServices</Frameworks>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>Addressbook SafariServices</Frameworks>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +85,9 @@
     </BundleResource>
     <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTCodeField.nib">
       <Link>Resources\DigitsKitResources.bundle\DGTCodeField.nib</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTContactsInvitationTableViewCell.nib">
+      <Link>Resources\DigitsKitResources.bundle\DGTContactsInvitationTableViewCell.nib</Link>
     </BundleResource>
     <BundleResource Include="..\..\Frameworks\DigitsKit.framework\Versions\A\Resources\DigitsKitResources.bundle\DGTCountryTableViewController.nib">
       <Link>Resources\DigitsKitResources.bundle\DGTCountryTableViewController.nib</Link>

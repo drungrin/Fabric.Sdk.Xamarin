@@ -44,6 +44,40 @@ namespace Bindings.DigitsKit
         IntPtr Constructor(string authToken, string authTokenSecret, string userID, string phoneNumber, string emailAddress, bool emailAddressIsVerified);
     }
 
+    // @interface DGTAPIClient : NSObject
+    [BaseType(typeof(NSObject))]
+    interface DGTAPIClient
+    {
+        // -(void)authenticateWithConfiguration:(DGTAuthenticationConfiguration *)configuration delegate:(id<DGTAPIAuthenticationDelegate>)authDelegate completion:(DGTAuthenticationCompletion)completionBlock;
+        [Export("authenticateWithConfiguration:delegate:completion:")]
+        void AuthenticateWithConfiguration(DGTAuthenticationConfiguration configuration, DGTAPIAuthenticationDelegate authDelegate, DGTAuthenticationCompletion completionBlock);
+    }
+
+    // @protocol DGTAPIAuthenticationDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface DGTAPIAuthenticationDelegate
+    {
+        // @required -(void)challengeViewController:(UIViewController<DGTAPIChallengeDelegate> *)challengeViewController error:(NSError *)error;
+        [Abstract]
+        [Export("challengeViewController:error:")]
+        void ChallengeViewController(UIViewController challengeViewController, NSError error);
+    }
+
+    // @interface DGTAuthenticateButton : UIButton
+    [BaseType(typeof(UIButton))]
+    interface DGTAuthenticateButton
+    {
+        // +(instancetype)buttonWithAuthenticationCompletion:(DGTAuthenticationCompletion)completion;
+        [Static]
+        [Export("buttonWithAuthenticationCompletion:")]
+        DGTAuthenticateButton ButtonWithAuthenticationCompletion(DGTAuthenticationCompletion completion);
+
+        // @property (copy, nonatomic) DGTAppearance * digitsAppearance;
+        [Export("digitsAppearance", ArgumentSemantic.Copy)]
+        DGTAppearance DigitsAppearance { get; set; }
+    }
+
     // @interface DGTAppearance : NSObject <NSCopying>
     [BaseType(typeof(NSObject))]
     public interface DGTAppearance : INSCopying
@@ -175,6 +209,93 @@ namespace Bindings.DigitsKit
         [Abstract]
         [Export("digitsSessionExpiredForUserID:")]
         void DigitsSessionExpiredForUserID(string userID);
+    }
+
+    // typedef void (^DGTUploadContactsCompletion)(DGTContactsUploadResult *, NSError *);
+    delegate void DGTUploadContactsCompletion(DGTContactsUploadResult arg0, NSError arg1);
+
+    // typedef void (^DGTLookupContactsCompletion)(NSArray *, NSString *, NSError *);
+    delegate void DGTLookupContactsCompletion(NSObject[] arg0, string arg1, NSError arg2);
+
+    // typedef void (^DGTDeleteAllUploadedContactsCompletion)(NSError *);
+    delegate void DGTDeleteAllUploadedContactsCompletion(NSError arg0);
+
+
+    // @interface DGTContacts : NSObject
+    [BaseType(typeof(NSObject))]
+    [DisableDefaultCtor]
+    interface DGTContacts
+    {
+        // +(DGTContactAccessAuthorizationStatus)contactsAccessAuthorizationStatus;
+        [Static]
+        [Export("contactsAccessAuthorizationStatus")]
+        DGTContactAccessAuthorizationStatus ContactsAccessAuthorizationStatus { get; }
+
+        // -(instancetype)initWithUserSession:(DGTSession *)userSession;
+        [Export("initWithUserSession:")]
+        IntPtr Constructor(DGTSession userSession);
+
+        // -(void)startContactsUploadWithCompletion:(DGTUploadContactsCompletion)completion;
+        [Export("startContactsUploadWithCompletion:")]
+        void StartContactsUploadWithCompletion(DGTUploadContactsCompletion completion);
+
+        // -(void)startContactsUploadWithTitle:(NSString *)title completion:(DGTUploadContactsCompletion)completion;
+        [Export("startContactsUploadWithTitle:completion:")]
+        void StartContactsUploadWithTitle(string title, DGTUploadContactsCompletion completion);
+
+        // -(void)startContactsUploadWithPresenterViewController:(UIViewController *)presenterViewController title:(NSString *)title completion:(DGTUploadContactsCompletion)completion;
+        [Export("startContactsUploadWithPresenterViewController:title:completion:")]
+        void StartContactsUploadWithPresenterViewController(UIViewController presenterViewController, string title, DGTUploadContactsCompletion completion);
+
+        // -(void)startContactsUploadWithDigitsAppearance:(DGTAppearance *)appearance presenterViewController:(UIViewController *)presenterViewController title:(NSString *)title completion:(DGTUploadContactsCompletion)completion;
+        [Export("startContactsUploadWithDigitsAppearance:presenterViewController:title:completion:")]
+        void StartContactsUploadWithDigitsAppearance(DGTAppearance appearance, UIViewController presenterViewController, string title, DGTUploadContactsCompletion completion);
+
+        // -(void)lookupContactMatchesWithCursor:(NSString *)cursor completion:(DGTLookupContactsCompletion)completion;
+        [Export("lookupContactMatchesWithCursor:completion:")]
+        void LookupContactMatchesWithCursor(string cursor, DGTLookupContactsCompletion completion);
+
+        // -(void)deleteAllUploadedContactsWithCompletion:(DGTDeleteAllUploadedContactsCompletion)completion;
+        [Export("deleteAllUploadedContactsWithCompletion:")]
+        void DeleteAllUploadedContactsWithCompletion(DGTDeleteAllUploadedContactsCompletion completion);
+    }
+
+    // @interface DGTContactsUploadResult : NSObject
+    [BaseType(typeof(NSObject))]
+    [DisableDefaultCtor]
+    interface DGTContactsUploadResult
+    {
+        // @property (readonly, nonatomic) NSUInteger totalContacts;
+        [Export("totalContacts")]
+        nuint TotalContacts { get; }
+
+        // @property (readonly, nonatomic) NSUInteger numberOfUploadedContacts;
+        [Export("numberOfUploadedContacts")]
+        nuint NumberOfUploadedContacts { get; }
+    }
+
+    // @interface DGTUser : NSObject
+    [BaseType(typeof(NSObject))]
+    interface DGTUser
+    {
+        // @property (readonly, copy, nonatomic) NSString * userID;
+        [Export("userID")]
+        string UserID { get; }
+    }
+
+    // @interface DGTOAuthSigning : NSObject <TWTRCoreOAuthSigning>
+    [BaseType(typeof(NSObject))]
+    [DisableDefaultCtor]
+    interface DGTOAuthSigning : ITWTRCoreOAuthSigning
+    {
+        // -(instancetype)initWithAuthConfig:(TWTRAuthConfig *)authConfig authSession:(DGTSession *)authSession __attribute__((objc_designated_initializer));
+        [Export("initWithAuthConfig:authSession:")]
+        [DesignatedInitializer]
+        IntPtr Constructor(TWTRAuthConfig authConfig, DGTSession authSession);
+
+        // -(NSDictionary *)OAuthEchoHeadersToVerifyCredentialsWithParams:(NSDictionary *)params;
+        [Export("OAuthEchoHeadersToVerifyCredentialsWithParams:")]
+        NSDictionary OAuthEchoHeadersToVerifyCredentialsWithParams(NSDictionary @params);
     }
 }
 

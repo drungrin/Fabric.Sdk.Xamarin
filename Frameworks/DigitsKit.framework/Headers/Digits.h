@@ -17,9 +17,12 @@
 #import <TwitterCore/TWTRAuthConfig.h>
 
 @class DGTAuthenticationConfiguration;
+@class DGTDebugConfiguration;
 @class TWTRAuthConfig;
 @class UIViewController;
 @protocol DGTSessionUpdateDelegate;
+@protocol DGTAuthEventDelegate;
+@protocol DGTContactsEventDelegate;
 @protocol DGTCompletionViewController;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -76,6 +79,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Notifies whenever there have been changes to the Digits Session or if it is no longer a valid session.
  */
 @property (nonatomic, weak) id<DGTSessionUpdateDelegate> sessionUpdateDelegate;
+
+/**
+ *  Be notified of various events taking place during the authentcation flow.  
+ */
+@property (nonatomic, weak) id<DGTAuthEventDelegate> authEventDelegate;
+
+/**
+ *  Be notified of various contacts related activities flow.
+ */
+@property (nonatomic, weak) id<DGTContactsEventDelegate> contactsEventDelegate;
+
+
+/**
+ *  Configuration to override Digits behavior. e.g. provide a digits session stub that will be returned instead of completing the authentication flow.
+ */
+@property (nonatomic, strong, nullable) DGTDebugConfiguration *debugOverrides;
 
 /**
  *  Starts the authentication flow UI with the standard appearance. The UI is presented as a modal off of the top-most view controller. The modal title is the application name.

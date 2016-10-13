@@ -1,33 +1,8 @@
 ﻿<metadata>
   <!-- Removals -->
-  <remove-node path="//*[@deprecated='deprecated']" />
-  <remove-node path="/api/package[@name='retrofit.client']/class[@name='OkClient']"/>	
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Body']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='DELETE']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Field']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='FieldMap']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='FormUrlEncoded']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='GET']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='HEAD']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Header']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Headers']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Multipart']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='PATCH']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='POST']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='PUT']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Part']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='PartMap']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Path']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Query']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='QueryMap']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='RestMethod']" />
-  <remove-node path="/api/package[@name='retrofit.http']/interface[@name='Streaming']" />
-
+  <remove-node path="//class[@visibility='']" />
   <!-- Namespaces -->
-  <attr path="/api/package[@name='retrofit']" name="managedName">Bindings.Retrofit</attr>
-  <attr path="/api/package[@name='retrofit.android']" name="managedName">Bindings.Retrofit.Android</attr>
-  <attr path="/api/package[@name='retrofit.client']" name="managedName">Bindings.Retrofit.Client</attr>
-  <attr path="/api/package[@name='retrofit.converter']" name="managedName">Bindings.Retrofit.Converter</attr>
-  <attr path="/api/package[@name='retrofit.http']" name="managedName">Bindings.Retrofit.Http</attr>
-  <attr path="/api/package[@name='retrofit.mime']" name="managedName">Bindings.Retrofit.Mime</attr>
+  <attr path="/api/package[@name='retrofit2']" name="managedName">Bindings.SquareUp.Retrofit2</attr>
+  <attr path="/api/package[@name='retrofit2.http']" name="managedName">Bindings.SquareUp.Retrofit2.Http</attr>
+  <attr path="/api/package[@name='retrofit2.converter.gson']" name="managedName">Bindings.SquareUp.Retrofit2.Converter.Gson</attr>
 </metadata>

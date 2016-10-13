@@ -14,7 +14,7 @@ namespace DigitsKit
 
         public static IDigits Instance => LazyInstance.Value;
 
-        private Digits() : base(new Bindings.DigitsKit.Digits())
+		private Digits() : base(new Bindings.DigitsKit.Digits.Builder().Build())
         {
         }
 
@@ -22,7 +22,7 @@ namespace DigitsKit
         {
             get
             {
-                var session = Bindings.DigitsKit.Digits.SessionManager.ActiveSession as DigitsSession;
+                var session = Bindings.DigitsKit.Digits.ActiveSession as DigitsSession;
                 return session == null ? null : new InternalDigitsSession(session);
             }
         }
@@ -31,7 +31,7 @@ namespace DigitsKit
         {
             var authCallback = new InternalAuthCallback();
             authCallback.OnCompletion += completionAction;
-            var authConfig = new DigitsAuthConfig.Builder()
+            var authConfig = new AuthConfig.Builder()
                 .WithAuthCallBack(authCallback)
                 .WithEmailCollection(isEmailRequired)
                 .Build();
@@ -48,7 +48,7 @@ namespace DigitsKit
         public InternalDigitsSession(DigitsSession session)
         {
             EmailAddress = session.Email?.Address;
-            EmailAddressIsVerified = session.Email?.IsVerified ?? false;
+            EmailAddressIsVerified = session.Email?.Verified ?? false;
             PhoneNumber = session.PhoneNumber;
             var authToken = session.AuthToken as TwitterAuthToken;
             AuthTokenSecret = authToken?.Secret;
