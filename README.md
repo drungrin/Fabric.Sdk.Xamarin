@@ -70,8 +70,8 @@ Put a breakpoint on the line after Fabric.Instance.Initialize(this) - and look a
 
 If ID is blank then the build UUID is incorrect.
 
-[img1]:[assets/1.png?raw=true]
-[img2]:[assets/2.png?raw=true]
-[img3]:[assets/3.png?raw=true]
-[img4]:[assets/4.png?raw=true]
-[img5]:[assets/5.png?raw=true]
+[img1]: assets/1.png?raw=true
+[img2]: assets/2.png?raw=true
+[img3]: assets/3.png?raw=true
+[img4]: assets/4.png?raw=true
+[img5]: assets/5.png?raw=true
