@@ -39,20 +39,30 @@ Once the project is open in AS click the project browser on the left, under App 
 ![Image 1][img1]
 
 When the build is finished you will see the following in the bottom right:
+
 ![Image 2][img2]
+
 Make sure that it is a recent finish, and not one from before you made the changes **otherwise the UUID will not work**.
 
 ### Generating the UUID
 Select the search icon in the top right of AS:
+
 ![Image3][img3]
+
 Search for:
+
 com_crashlytics_build_id.xml
+
 Or navigate to:
+
 ![Image 4][img4]
+
 Then copy the UUID in the <string/> XML tag and paste it into Strings.xml in Xamarin Studio here:
+
 ![Image 5][img5]
 
 And presto everything should work! Just check the log output shows:
+
 [Fabric] Build ID is: <New Build ID>
 
 ### Checking A Crash Has Sent
@@ -60,8 +70,8 @@ Put a breakpoint on the line after Fabric.Instance.Initialize(this) - and look a
 
 If ID is blank then the build UUID is incorrect.
 
-[img1]:[assets/1.png]
-[img2]:[assets/2.png]
-[img3]:[assets/3.png]
-[img4]:[assets/4.png]
-[img5]:[assets/5.png]
+[img1]:[/assets/1.png]
+[img2]:[/assets/2.png]
+[img3]:[/assets/3.png]
+[img4]:[/assets/4.png]
+[img5]:[/assets/5.png]
