@@ -61,6 +61,9 @@ Then copy the UUID in the <string/> XML tag and paste it into Strings.xml in Xam
 
 ![Image 5][img5]
 
+In the format 
+<code>&lt;string name="com.crashlytics.android.build_id">build_id&lt;/string></code>
+
 And presto everything should work! Just check the log output shows:
 
 [Fabric] Build ID is: <New Build ID>
