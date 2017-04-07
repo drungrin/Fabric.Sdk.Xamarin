@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="br.eti.michelmoreira.fabric_forms_sample">
-	<uses-sdk android:minSdkVersion="23" />
+	<uses-sdk />
 	<application android:label="Fabric Forms Sample">
 		<meta-data android:name="io.fabric.ApiKey" android:value="aad1d8701e23500cc5e3af912f54333e17d19d37" />
 	</application>

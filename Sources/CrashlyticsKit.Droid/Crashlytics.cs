@@ -31,8 +31,11 @@ namespace CrashlyticsKit
 
         public void RecordException(Exception exception)
         {
-            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace);
-            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message);
+			if (exception.StackTrace != null)
+            	Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace);
+			if (exception.Message != null)
+            	Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message);
+			
             Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception", exception.GetType().FullName);
 
             Bindings.CrashlyticsKit.Crashlytics.LogException(ToThrowable(exception));

@@ -59,4 +59,9 @@
  */
 @property (nonatomic, strong) UIImage *logoImage;
 
+/**
+ *  Applying the appearance settings to be effective.
+ */
+- (void)applyUIAppearanceColors;
+
 @end

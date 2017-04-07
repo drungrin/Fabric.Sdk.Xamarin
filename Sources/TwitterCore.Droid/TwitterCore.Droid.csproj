@@ -13,7 +13,8 @@
     <AssemblyName>TwitterCore.Platform</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +38,18 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
+    <Reference Include="GoogleGson">
+      <HintPath>..\..\Samples\FormsSample\packages\GoogleGson.2.6.2.0\lib\MonoAndroid\GoogleGson.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.Retrofit2">
+      <HintPath>..\..\Samples\FormsSample\packages\Square.Retrofit2.2.1.0\lib\MonoAndroid\Square.Retrofit2.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.OkIO">
+      <HintPath>..\..\Samples\FormsSample\packages\Square.OkIO.1.11.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.OkHttp3">
+      <HintPath>..\..\Samples\FormsSample\packages\Square.OkHttp3.3.5.0\lib\MonoAndroid\Square.OkHttp3.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,32 +64,22 @@
     </TransformFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gson.Droid\Gson.Droid.csproj">
-      <Project>{ac949602-ae1a-4d06-b3d4-19eee7142909}</Project>
-      <Name>Gson.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Retrofit.Droid\Retrofit.Droid.csproj">
-      <Project>{84ebe877-9fbb-427e-91a5-7cf3f7d8594f}</Project>
-      <Name>Retrofit.Droid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FabricSdk.Droid\FabricSdk.Droid.csproj">
       <Project>{8FA30B29-B1D2-42F9-A226-0701F61FC037}</Project>
       <Name>FabricSdk.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OkHttp.Droid\OkHttp.Droid.csproj">
-      <Project>{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}</Project>
-      <Name>OkHttp.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OkIo.Droid\OkIo.Droid.csproj">
-      <Project>{32A455BD-B4A7-4909-935B-8424FC64670E}</Project>
-      <Name>OkIo.Droid</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\twitter-core-2.0.0.aar" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\converter-gson-2.1.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\twitter-core-2.3.0.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -86,4 +89,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets" Condition="Exists('..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets')" />
 </Project>

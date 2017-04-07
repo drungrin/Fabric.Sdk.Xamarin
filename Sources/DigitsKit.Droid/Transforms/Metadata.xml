@@ -1,34 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<!--<remove-node path="//implements" />-->
+	<!-- Visibility -->
+	<attr path="/api/package/class[@visibility='']" name="visibility">internal</attr>
+	<attr path="/api/package/interface[@visibility='']" name="visibility">internal</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivity']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='CountryInfo']" name="visibility">public</attr>
-	<!--<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsErrorCodes']" name="visibility">public</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivityDelegateImpl']" name="visibility">public</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='AuthConfig']" name="visibility">public</attr>
-
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActivityDelegateImpl']" name="visibility">public</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsControllerImpl']" name="visibility">public</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='EmptyDigitsDetails']" name="visibility">public</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsEventCollector']" name="visibility">public</attr>-->
-	<!-- Fields and Returns -->
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">java.lang.Object</attr>
-	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='serialize' and count(parameter)=1 and parameter[1][@type='com.digits.sdk.android.DigitsSession']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActionBarActivity']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/interface[@name='DigitsController']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.events']/class[@name='EmptyDigitsDetails']" name="visibility">public</attr>
+	<!-- Field Rename -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsUploadFailureResult']/field[@name='summary']" name="managedName">SummaryValue</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy']/field[@name='emailInviteStrategy']" name="type">com.digits.sdk.android.internal.InviteStrategy</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy']/field[@name='twitterInviteStrategy']" name="type">com.digits.sdk.android.internal.InviteStrategy</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy']/field[@name='whatsappInviteStrategy']" name="type">com.digits.sdk.android.internal.InviteStrategy</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy']/field[@name='mmsInviteStrategy']" name="type">com.digits.sdk.android.internal.InviteStrategy</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.models']/class[@name='Invites']/field[@name='invites']" name="managedName">InvitesValue</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.models']/class[@name='Vcards']/field[@name='vcards']" name="managedName">VcardsValue</attr>
+	<!-- Change Return Type -->
 	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='Digits']/method[@name='doInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
-	<!-- Extends private classes -->
-	<attr path="//class[@extends='com.digits.sdk.android.DigitsActivity']" name="extends">Java.Lang.Object</attr>
-	<attr path="//class[@extends='com.digits.sdk.android.DigitsException']" name="extends">Java.Lang.RuntimeException</attr>
-	<attr path="//class[@extends='com.digits.sdk.android.DigitsActionBarActivity']" name="extends">Java.Lang.Object</attr>
-	<attr path="//class[@extends='com.digits.sdk.android.events.EmptyDigitsDetails']" name="extends">Java.Lang.Object</attr>
-	<!-- Removals -->
-	<remove-node path="//class[@visibility='']" />
-	<remove-node path="/api/package[@name='com.digits.sdk.android.models']/class[@name='Vcards']/field[@name='vcards']" />
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsContactsCursorLoader']/method[@name='loadInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='LoggingSessionManager']/method[@name='getActiveSession' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='LoggingSessionManager']/method[@name='getSessionMap' and count(parameter)=0]" name="return">java.util.Map</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='LoggingSessionManager']/method[@name='getSession' and count(parameter)=1 and parameter[1][@type='long']]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk']/class[@name='DigitsContactsCursorLoaderCallbacks']/method[@name='onCreateLoader' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.os.Bundle']]" name="return">android.content.Loader</attr>
+	<!-- Change Parameter Type -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSession.Serializer']/method[@name='serialize' and count(parameter)=1 and parameter[1][@type='com.digits.sdk.android.DigitsSession']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsSessionVerifier']/method[@name='verifySession' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.Session']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='LoggingSessionManager']/method[@name='setActiveSession' and count(parameter)=1 and parameter[1][@type='com.digits.sdk.android.DigitsSession']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='LoggingSessionManager']/method[@name='setSession' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='com.digits.sdk.android.DigitsSession']]/parameter[@name='p1']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android.models']/class[@name='DigitsUser']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.digits.sdk.android.models.DigitsUser']]/parameter[@name='p0']" name="type">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.digits.sdk']/class[@name='DigitsContactsCursorLoaderCallbacks']/method[@name='onLoadFinished' and count(parameter)=2 and parameter[1][@type='android.content.Loader&lt;com.digits.sdk.android.DigitsContactsCursor&gt;'] and parameter[2][@type='com.digits.sdk.android.DigitsContactsCursor']]/parameter[@name='p1']" name="type">Java.Lang.Object</attr>
+	<attr path="//parameter[@type='com.digits.sdk.android.CountryListLoadTask.Listener']" name="type">java.lang.Object</attr>
+	<!-- Change Extend Type -->
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='AttributableInviteDownloadService']" name="extends">mono.android.app.IntentService</attr>
+	<attr path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsUploadService']" name="extends">mono.android.app.IntentService</attr>
+	<!-- Remove -->
+	<remove-node path="//*[@deprecated='deprecated']" />
 	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='failure' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.TwitterException']]" />
 	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='ContactsCallback']/method[@name='success' and count(parameter)=1 and parameter[1][@type='com.twitter.sdk.android.core.Result&lt;T&gt;']]" />
-	<remove-node path="//implements[@name='com.digits.sdk.android.CountryListLoadTask.Listener']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActionBarActivity']/method[@name='onCreate' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActionBarActivity']/method[@name='onDestroy' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsActionBarActivity']/method[@name='onResume' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsApi']/field[@name='BASE_HOST_URL']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='DigitsApi']/field[@name='BASE_HOST']" />
+	<remove-node path="//method[@name='onCreate' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]" />
+	<remove-node path="//method[@name='onDestroy' and count(parameter)=0]" />
+	<remove-node path="//method[@name='onResume' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy.MMSInviteStrategy']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy.EmailInviteStrategy']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy.TwitterInviteStrategy']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android.internal']/class[@name='InviteStrategy.WhatsappInviteStrategy']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='LoginResultReceiver']/method[@name='onReceiveResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.os.Bundle']]" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/class[@name='CountryListLoadTask']" />
+	<remove-node path="/api/package[@name='com.digits.sdk.android']/interface[@name='CountryListLoadTask.Listener']" />
+	<remove-node path="//implements[@name='com.digits.sdk.android.CountryListLoadTask.Listener']" />	
+	<!-- Static -->
 	<!-- Namespaces -->
+	<attr path="/api/package[@name='com.digits.sdk']" name="managedName">Bindings.DigitsKit</attr>
 	<attr path="/api/package[@name='com.digits.sdk.android']" name="managedName">Bindings.DigitsKit</attr>
 	<attr path="/api/package[@name='com.digits.sdk.android.events']" name="managedName">Bindings.DigitsKit.Events</attr>
 	<attr path="/api/package[@name='com.digits.sdk.android.internal']" name="managedName">Bindings.DigitsKit.Internal</attr>
 	<attr path="/api/package[@name='com.digits.sdk.android.models']" name="managedName">Bindings.DigitsKit.Models</attr>
-	<attr path="/api/package[@name='com.digits.sdk.vcard']" name="managedName">Bindings.DigitsKit.VCard</attr>	
+	<attr path="/api/package[@name='com.digits.sdk.vcard']" name="managedName">Bindings.DigitsKit.VCard</attr>
 </metadata>

@@ -11,7 +11,8 @@
     <AssemblyName>CrashlyticsKit.Platform</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
@@ -82,8 +84,12 @@
   </Target>
   -->
   <ItemGroup>
-    <EmbeddedJar Include="Jars\beta-1.2.2.jar" />
-    <EmbeddedJar Include="Jars\crashlytics-2.6.2.jar" />
-    <EmbeddedJar Include="Jars\crashlytics-core-2.3.11.jar" />
+    <Folder Include="Jars\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\beta-1.2.4.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-2.6.7.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-core-2.3.16.jar" />
+  </ItemGroup>
+  <Import Project="..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets" Condition="Exists('..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets')" />
 </Project>

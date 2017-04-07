@@ -4,7 +4,7 @@ using System.Linq;
 using Android.Content;
 
 namespace FabricSdk
-{
+{	
     public sealed class Fabric : IFabric
     {
         private static readonly Lazy<Fabric> LazyInstance = new Lazy<Fabric>(() => new Fabric());

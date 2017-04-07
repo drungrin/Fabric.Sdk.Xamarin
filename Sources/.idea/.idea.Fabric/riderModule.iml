@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RIDER_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../../Frameworks">
+      <sourceFolder url="file://$MODULE_DIR$/../../../Frameworks" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../..">
+      <sourceFolder url="file://$MODULE_DIR$/../../AnswersKit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../AnswersKit.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../AnswersKit.Pcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../AnswersKit.Touch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CrashlyticsKit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Answers.Touch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Pcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Touch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DigitsKit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DigitsKit.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DigitsKit.Pcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DigitsKit.Touch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../FabricSdk" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../FabricSdk.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../FabricSdk.Pcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../FabricSdk.Touch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../Gson.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../OkHttp.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../OkIo.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../Retrofit.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../TwitterCore.Droid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../TwitterCore.Touch" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Pcl/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Pcl/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../AnswersKit/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Answers.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Answers.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Pcl/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Pcl/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CrashlyticsKit/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Pcl/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Pcl/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DigitsKit/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Pcl/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Pcl/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FabricSdk/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Gson.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Gson.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../OkHttp.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../OkHttp.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../OkIo.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../OkIo.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Retrofit.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Retrofit.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../TwitterCore.Droid/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../TwitterCore.Droid/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../TwitterCore.Touch/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../TwitterCore.Touch/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../packages" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

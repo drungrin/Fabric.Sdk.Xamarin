@@ -115,5 +115,20 @@ typedef NS_ENUM(NSInteger, DGTErrorCode) {
     /**
      * Contact upload failed due to generic bad request
      */
-    DGTErrorCodeUnableToUploadContactsGenericBadRequest = 19
+    DGTErrorCodeUnableToUploadContactsGenericBadRequest = 19,
+
+    /**
+     *  Unable to retrieve valid invitation data
+     */
+    DGTErrorCodeUnableToRetrieveValidInvitationData = 20,
+
+    /**
+     *  Unable to detect the branch SDK
+     */
+    DGTErrorCodeUnableToDetectBranchSDK = 21,
+
+    /**
+     *  Invalid parameter sent.
+     */
+    DGTErrorCodeInvalidParameter = 22
 };

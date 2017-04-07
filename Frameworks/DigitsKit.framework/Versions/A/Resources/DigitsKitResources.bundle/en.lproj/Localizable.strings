@@ -131,3 +131,18 @@
 
 /* Message to show developers to configure their Answers logging */
 "ONBOARDING_MESSAGE_ANSWERS" = "Add the Answers framework to your app to enable Digits event logging automatically. Learn more at https://answers.io";
+
+/* Default sms prefill text that is shown when a user asking their friend to join their app.*/
+"SMS_PREFILL_TEXT_DEFAULT" = "Hi %@. I'm using %@, join me!";
+
+/* Default sms prefil text that is shown when a user is asking their friend to join their app.*/
+"SMS_PREFILL_TEXT_DEFAULT_BRANCH" = "Hi %@. Install %@ at %@.";
+
+/* The title of the button for inviting contact entries to app */
+"INVITE_BUTTON_TITLE" = "Invite";
+
+/* The title of the button for contact entries that are already invited */
+"INVITED_BUTTON_TITLE" = "Invited";
+
+/* Default title text for the friends invite view controller */
+"DEFAULT_INVITE_VIEW_TITLE" = "Invite Friends";

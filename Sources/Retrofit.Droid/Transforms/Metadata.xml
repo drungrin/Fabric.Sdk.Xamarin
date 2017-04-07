@@ -1,8 +1,0 @@
-﻿<metadata>
-  <!-- Removals -->
-  <remove-node path="//class[@visibility='']" />
-  <!-- Namespaces -->
-  <attr path="/api/package[@name='retrofit2']" name="managedName">Bindings.SquareUp.Retrofit2</attr>
-  <attr path="/api/package[@name='retrofit2.http']" name="managedName">Bindings.SquareUp.Retrofit2.Http</attr>
-  <attr path="/api/package[@name='retrofit2.converter.gson']" name="managedName">Bindings.SquareUp.Retrofit2.Converter.Gson</attr>
-</metadata>

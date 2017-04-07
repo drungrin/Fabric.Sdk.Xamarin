@@ -1,62 +1,20 @@
-﻿<metadata>
-  <!-- Method Overrides -->
-  <attr
-    path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/method[@name='doInBackground' and count(parameter)=0]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.beta']/class[@name='Beta']/method[@name='doInBackground' and count(parameter)=0]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.beta']/class[@name='DeviceTokenLoader']/method[@name='load' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.beta']/class[@name='Beta']"
-    name="managedName">
-    CrashlyticsBeta
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsCore']/method[@name='doInBackground' and count(parameter)=0]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsCore.CrashMarkerCheck']/method[@name='call' and count(parameter)=0]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <attr
-    path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsFileMarker']"
-    name="visibility">
-    public
-  </attr>
-
-
-  <!--
-  <attr
-    path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/field[@name='answers']"
-    name="type">
-    Crashlytics.Sdk.Bindings.Answers.CrashlyticsAnswers
-  </attr>
-  <attr
-   path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics.Builder']/method[@name='answers']/parameter[@type='com.crashlytics.android.answers.Answers']"
-   name="type">
-    Crashlytics.Sdk.Bindings.Answers.CrashlyticsAnswers
-  </attr>
-  -->
-  <!-- Namespaces Renames -->
-  <attr path="/api/package[@name='com.crashlytics.android']" name="managedName">Bindings.CrashlyticsKit</attr>
-  <attr path="/api/package[@name='com.crashlytics.android.beta']" name="managedName">Bindings.CrashlyticsKit.Beta</attr>
-  <attr path="/api/package[@name='com.crashlytics.android.core']" name="managedName">Bindings.CrashlyticsKit.Core</attr>
-  <attr path="/api/package[@name='com.crashlytics.android.core.internal']" name="managedName">Bindings.CrashlyticsKit.Core.Internal</attr>
-  <attr path="/api/package[@name='com.crashlytics.android.core.internal.models']" name="managedName">Bindings.CrashlyticsKit.Core.Internal.Models</attr>
-  <!-- Deprecates Removal -->
-  <remove-node path="//*[@deprecated='deprecated']" />
-  <!-- Field Removals -->
-  <remove-node path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/field[@name='kits']" />
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<!-- Change Return Types -->
+	<attr path="//method[@name='doInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsFileMarker']" name="visibility">public</attr>
+	<!-- Class Rename -->
+	<attr path="/api/package[@name='com.crashlytics.android.beta']/class[@name='Beta']" name="managedName">CrashlyticsBeta</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.beta']/class[@name='DeviceTokenLoader']/method[@name='load' and count(parameter)=1 and parameter[1][@type='android.content.Context']]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.core']/class[@name='CrashlyticsCore.CrashMarkerCheck']/method[@name='call' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<!-- Namespaces -->
+	<attr path="/api/package[@name='com.crashlytics.android']" name="managedName">Bindings.CrashlyticsKit</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.beta']" name="managedName">Bindings.CrashlyticsKit.Beta</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.core']" name="managedName">Bindings.CrashlyticsKit.Core</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.core.internal']" name="managedName">Bindings.CrashlyticsKit.Core.Internal</attr>
+	<attr path="/api/package[@name='com.crashlytics.android.core.internal.models']" name="managedName">Bindings.CrashlyticsKit.Core.Internal.Models</attr>
+	<!-- Deprecates Removal -->
+	<remove-node path="//*[@deprecated='deprecated']" />
+	<!-- Field Removals -->
+	<remove-node path="/api/package[@name='com.crashlytics.android']/class[@name='Crashlytics']/field[@name='kits']" />
 </metadata>

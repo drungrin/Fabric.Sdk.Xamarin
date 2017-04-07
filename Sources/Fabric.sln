@@ -37,17 +37,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit", "DigitsKit\Digi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Droid", "DigitsKit.Droid\DigitsKit.Droid.csproj", "{830E413C-C426-4A06-9FB2-F8FF5D317F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retrofit.Droid", "Retrofit.Droid\Retrofit.Droid.csproj", "{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gson.Droid", "Gson.Droid\Gson.Droid.csproj", "{AC949602-AE1A-4D06-B3D4-19EEE7142909}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Pcl", "DigitsKit.Pcl\DigitsKit.Pcl.csproj", "{964823A7-BE1B-4DB3-8804-5AAE669E7595}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Answers.Touch", "CrashlyticsKit.Answers.Touch\CrashlyticsKit.Answers.Touch.csproj", "{1587379F-4BE6-4651-BD52-5AF818C2EC74}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkIo.Droid", "OkIo.Droid\OkIo.Droid.csproj", "{32A455BD-B4A7-4909-935B-8424FC64670E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkHttp.Droid", "OkHttp.Droid\OkHttp.Droid.csproj", "{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -158,18 +150,6 @@ Global
 		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84EBE877-9FBB-427E-91A5-7CF3F7D8594F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC949602-AE1A-4D06-B3D4-19EEE7142909}.Release|Any CPU.Build.0 = Release|Any CPU
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.AppStore|Any CPU.Build.0 = Release|Any CPU
 		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -182,18 +162,6 @@ Global
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.AppStore|Any CPU.Build.0 = Debug|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32A455BD-B4A7-4909-935B-8424FC64670E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.AppStore|Any CPU.Build.0 = Debug|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1078350B-B8A0-421E-B2DB-3440A9AFCE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
