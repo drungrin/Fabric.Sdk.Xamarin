@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FormsSample.Droid</RootNamespace>
     <AssemblyName>FormsSample.Droid</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -16,6 +16,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,12 @@
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Android.Support.Vector.Drawable">
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
@@ -53,71 +60,68 @@
     <Reference Include="Xamarin.Android.Support.v7.AppCompat">
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.Design">
       <HintPath>..\packages\Xamarin.Android.Support.Design.23.3.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.CardView">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Platform.Android">
-      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
-    </Reference>
     <Reference Include="FormsViewGroup">
-      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    <Reference Include="Xamarin.Forms.Platform.Android">
+      <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="FabricSdk">
-      <HintPath>..\packages\Fabric.1.0\lib\MonoAndroid10\FabricSdk.dll</HintPath>
-    </Reference>
-    <Reference Include="FabricSdk.Platform">
-      <HintPath>..\packages\Fabric.1.0\lib\MonoAndroid10\FabricSdk.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="TwitterCore.Platform">
-      <HintPath>..\packages\Digits.1.0\lib\MonoAndroid10\TwitterCore.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Retrofit.Platform">
-      <HintPath>..\packages\Digits.1.0\lib\MonoAndroid10\Retrofit.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Gson.Platform">
-      <HintPath>..\packages\Digits.1.0\lib\MonoAndroid10\Gson.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="DigitsKit">
-      <HintPath>..\packages\Digits.1.0\lib\MonoAndroid10\DigitsKit.dll</HintPath>
-    </Reference>
-    <Reference Include="DigitsKit.Platform">
-      <HintPath>..\packages\Digits.1.0\lib\MonoAndroid10\DigitsKit.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="AnswersKit">
-      <HintPath>..\packages\Crashlytics.1.0\lib\MonoAndroid10\AnswersKit.dll</HintPath>
-    </Reference>
-    <Reference Include="AnswersKit.Platform">
-      <HintPath>..\packages\Crashlytics.1.0\lib\MonoAndroid10\AnswersKit.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="CrashlyticsKit">
-      <HintPath>..\packages\Crashlytics.1.0\lib\MonoAndroid10\CrashlyticsKit.dll</HintPath>
-    </Reference>
-    <Reference Include="CrashlyticsKit.Platform">
-      <HintPath>..\packages\Crashlytics.1.0\lib\MonoAndroid10\CrashlyticsKit.Platform.dll</HintPath>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FormsSample.csproj">
       <Project>{2C99D1B1-9C08-4B8B-BBF5-A668EA40AD7C}</Project>
       <Name>FormsSample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\AnswersKit.Droid\AnswersKit.Droid.csproj">
+      <Project>{F4E6BC88-6C89-4DBB-818F-4F93007E74E9}</Project>
+      <Name>AnswersKit.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\AnswersKit\AnswersKit.csproj">
+      <Project>{B2D1B367-2FEF-4B8E-9DA7-BC858A24A206}</Project>
+      <Name>AnswersKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\CrashlyticsKit\CrashlyticsKit.csproj">
+      <Project>{196AD8C6-5A66-413F-B5F7-FD8030FEDA84}</Project>
+      <Name>CrashlyticsKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\CrashlyticsKit.Droid\CrashlyticsKit.Droid.csproj">
+      <Project>{A24629AF-44AE-4337-A6E3-6929086BF613}</Project>
+      <Name>CrashlyticsKit.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\DigitsKit\DigitsKit.csproj">
+      <Project>{7659F3DB-A196-43D2-B897-0ECEB935E961}</Project>
+      <Name>DigitsKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\DigitsKit.Droid\DigitsKit.Droid.csproj">
+      <Project>{830E413C-C426-4A06-9FB2-F8FF5D317F2E}</Project>
+      <Name>DigitsKit.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\FabricSdk\FabricSdk.csproj">
+      <Project>{BB4053FC-3695-490A-83E8-631F0BE6B5EE}</Project>
+      <Name>FabricSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\FabricSdk.Droid\FabricSdk.Droid.csproj">
+      <Project>{8FA30B29-B1D2-42F9-A226-0701F61FC037}</Project>
+      <Name>FabricSdk.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sources\TwitterCore.Droid\TwitterCore.Droid.csproj">
+      <Project>{2E690E9F-AF91-435E-9A10-1B2762E631DB}</Project>
+      <Name>TwitterCore.Droid</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -143,5 +147,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
 </Project>

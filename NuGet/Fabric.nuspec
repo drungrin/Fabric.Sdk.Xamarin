@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Fabric</id>
-    <version>1.1</version>
+    <version>1.2</version>
     <title>Fabric</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
@@ -16,10 +16,9 @@
   <files>
     <!-- PCL -->
     <file src="Sources/FabricSdk/bin/Release/FabricSdk.dll"
-          target="lib/portable-net45+win8+wpa81/FabricSdk.dll" />    
+          target="lib/portable-net45+win8+wpa81+wp8/FabricSdk.dll" />    
     <file src="Sources/FabricSdk.Pcl/bin/Release/FabricSdk.Platform.dll"
-          target="lib/portable-net45+win8+wpa81/FabricSdk.Platform.dll" />
-    
+          target="lib/portable-net45+win8+wpa81+wp8/FabricSdk.Platform.dll" />    
     <!-- Xamarin.Android -->
     <file src="Sources/FabricSdk/bin/Release/FabricSdk.dll"
           target="lib/MonoAndroid10/FabricSdk.dll" />

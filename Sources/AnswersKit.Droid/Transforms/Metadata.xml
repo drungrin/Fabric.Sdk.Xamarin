@@ -1,10 +1,6 @@
 ﻿<metadata>
   <!-- Method Overrides -->
-  <attr
-    path="/api/package[@name='com.crashlytics.android.answers']/class[@name='Answers']/method[@name='doInBackground' and count(parameter)=0]"
-    name="return">
-    java.lang.Object
-  </attr>
-  <!-- Namespaces Renames -->
+  <attr path="/api/package[@name='com.crashlytics.android.answers']/class[@name='Answers']/method[@name='doInBackground' and count(parameter)=0]" name="return">java.lang.Object</attr>
+  <!-- Namespaces -->
   <attr path="/api/package[@name='com.crashlytics.android.answers']" name="managedName">Bindings.AnswersKit</attr>
 </metadata>

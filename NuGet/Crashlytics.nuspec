@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Crashlytics</id>
-    <version>1.1</version>
+    <version>1.2</version>
     <title>Crashlytics</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
@@ -14,22 +14,22 @@
     <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, answers</tags>
     <dependencies>            
       <group>
-        <dependency id="Fabric" version="1.1" />
+        <dependency id="Fabric" version="1.2" />
       </group>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Answers" version="1.1" />
+        <dependency id="Answers" version="1.2" />
       </group>
-      <group targetFramework="portable-net45+win8+wpa81">
-        <dependency id="Answers" version="1.1" />
+      <group targetFramework="portable-net45+win8+wpa81+wp8">
+        <dependency id="Answers" version="1.2" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <!-- PCL -->
     <file src="Sources/CrashlyticsKit/bin/Release/CrashlyticsKit.dll"
-          target="lib/portable-net45+win8+wpa81/CrashlyticsKit.dll" />
+          target="lib/portable-net45+win8+wpa81+wp8/CrashlyticsKit.dll" />
     <file src="Sources/CrashlyticsKit.Pcl/bin/Release/CrashlyticsKit.Platform.dll"
-          target="lib/portable-net45+win8+wpa81/CrashlyticsKit.Platform.dll" />
+          target="lib/portable-net45+win8+wpa81+wp8/CrashlyticsKit.Platform.dll" />
 
     <!-- Xamarin.Android -->
     <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"

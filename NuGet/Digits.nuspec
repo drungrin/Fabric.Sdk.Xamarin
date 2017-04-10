@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Digits</id>
-    <version>1.1</version>
+    <version>1.2</version>
     <title>Digits</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
@@ -14,28 +14,25 @@
     <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, digits</tags>
     <dependencies>            
       <group>
-        <dependency id="Fabric" version="1.1" />
+        <dependency id="Fabric" version="1.2" />
+      </group>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="GoogleGson" version="2.6.2.0" />
+        <dependency id="Square.OkHttp3" version="3.5.0" />
+        <dependency id="Square.Retrofit2" version="2.1.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <!-- PCL -->
     <file src="Sources/DigitsKit/bin/Release/DigitsKit.dll"
-          target="lib/portable-net45+win8+wpa81/DigitsKit.dll" />
+          target="lib/portable-net45+win8+wpa81+wp8/DigitsKit.dll" />
     <file src="Sources/DigitsKit.Pcl/bin/Release/DigitsKit.Platform.dll"
-          target="lib/portable-net45+win8+wpa81/DigitsKit.Platform.dll" />
+          target="lib/portable-net45+win8+wpa81+wp8/DigitsKit.Platform.dll" />
 
     <!-- Xamarin.Android -->
     <file src="Sources/TwitterCore.Droid/bin/Release/TwitterCore.Platform.dll"
           target="lib/MonoAndroid10/TwitterCore.Platform.dll" />
-    <file src="Sources/Retrofit.Droid/bin/Release/Retrofit.Platform.dll"
-          target="lib/MonoAndroid10/Retrofit.Platform.dll" />
-    <file src="Sources/OkHttp.Droid/bin/Release/OkHttp.Platform.dll"
-          target="lib/MonoAndroid10/OkHttp.Platform.dll" />
-    <file src="Sources/OkIo.Droid/bin/Release/OkIo.Platform.dll"
-          target="lib/MonoAndroid10/OkIo.Platform.dll" />
-    <file src="Sources/Gson.Droid/bin/Release/Gson.Platform.dll"
-          target="lib/MonoAndroid10/Gson.Platform.dll" />
     <file src="Sources/DigitsKit/bin/Release/DigitsKit.dll"
           target="lib/MonoAndroid10/DigitsKit.dll" />
     <file src="Sources/DigitsKit.Droid/bin/Release/DigitsKit.Platform.dll"

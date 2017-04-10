@@ -33,6 +33,12 @@
 #import "DGTAPIClient.h"
 #import "DGTAuthEventDelegate.h"
 #import "DGTContactsEventDelegate.h"
+#import "DGTContactsInvitationDataSource.h"
+#import "DGTConfigurableTableViewCell.h"
+#import "DGTContactsFetcher.h"
+#import "DGTAddressBookContact.h"
+#import "DGTAttributionEventDelegate.h"
+#import "DGTInviteStatus.h"
 #import "DGTAuthEventDetails.h"
 #import "DGTAuthenticateButton.h"
 #import "DGTAuthenticationConfiguration.h"
@@ -40,6 +46,7 @@
 #import "DGTContactAccessAuthorizationStatus.h"
 #import "DGTContacts.h"
 #import "DGTContactsDebugConfiguration.h"
+#import "DGTBranchConfiguration.h"
 #import "DGTContactsUploadResult.h"
 #import "DGTDebugConfiguration.h"
 #import "DGTUser.h"
@@ -49,6 +56,8 @@
 #import "DGTSession.h"
 #import "DGTSessionUpdateDelegate.h"
 #import "Digits.h"
+#import "DGTBranch.h"
+#import "DGTInvites.h"
 
 /**
  *  `DigitsKit` can be used as an element in the array passed to the `+[Fabric with:]`.
