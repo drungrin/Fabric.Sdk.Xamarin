@@ -99,30 +99,33 @@ namespace CrashlyticsKit
 
         public void RecordException(Exception exception)
         {
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "exception stack trace");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace ?? string.Empty), "exception stack trace");
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "exception message");
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "exception");
 
             var stackFrames = new List<CLSStackFrame>();
 
-            foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
+            if (exception.StackTrace != null)
             {
-                var cls = match.Groups[1].Value;
-                var method = match.Groups[2].Value;
-                var file = match.Groups[3].Value;
-                var line = Convert.ToInt32(match.Groups[4].Value);
-                if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
-                    !cls.StartsWith("System.Runtime.CompilerServices"))
+                foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
                 {
-                    if (string.IsNullOrEmpty(file))
-                        file = "filename unknown";
-
-                    stackFrames.Add(new CLSStackFrame
+                    var cls = match.Groups[1].Value;
+                    var method = match.Groups[2].Value;
+                    var file = match.Groups[3].Value;
+                    var line = Convert.ToInt32(match.Groups[4].Value);
+                    if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
+                        !cls.StartsWith("System.Runtime.CompilerServices"))
                     {
-                        FileName = file,
-                        LineNumber = (uint)line,
-                        Symbol = cls + "." + method,
-                    });
+                        if (string.IsNullOrEmpty(file))
+                            file = "filename unknown";
+
+                        stackFrames.Add(new CLSStackFrame
+                        {
+                            FileName = file,
+                            LineNumber = (uint)line,
+                            Symbol = cls + "." + method,
+                        });
+                    }
                 }
             }
 
@@ -189,7 +192,7 @@ namespace CrashlyticsKit
             if (exception == null)
                 return;
             
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace), "managed exception stack trace");
+            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace ?? string.Empty), "managed exception stack trace");
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "managed exception message");
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "managed exception");
         }

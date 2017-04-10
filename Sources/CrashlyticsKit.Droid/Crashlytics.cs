@@ -31,11 +31,8 @@ namespace CrashlyticsKit
 
         public void RecordException(Exception exception)
         {
-			if (exception.StackTrace != null)
-            	Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace);
-			if (exception.Message != null)
-            	Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message);
-			
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace ?? string.Empty);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message ?? string.Empty);
             Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception", exception.GetType().FullName);
 
             Bindings.CrashlyticsKit.Crashlytics.LogException(ToThrowable(exception));
@@ -123,21 +120,26 @@ namespace CrashlyticsKit
             throwable = new Throwable(exception.Message);
 
             var stackTrace = new List<StackTraceElement>();
-            foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
-            {
-                var cls = match.Groups[1].Value;
-                var method = match.Groups[2].Value;
-                var file = match.Groups[3].Value;
-                var line = Convert.ToInt32(match.Groups[4].Value);
-                if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
-                    !cls.StartsWith("System.Runtime.CompilerServices"))
-                {
-                    if (String.IsNullOrEmpty(file))
-                        file = "filename unknown";
 
-                    stackTrace.Add(new StackTraceElement(cls, method, file, line));
+            if (exception.StackTrace != null)
+            {
+                foreach (Match match in StackTraceRegex.Matches(exception.StackTrace))
+                {
+                    var cls = match.Groups[1].Value;
+                    var method = match.Groups[2].Value;
+                    var file = match.Groups[3].Value;
+                    var line = Convert.ToInt32(match.Groups[4].Value);
+                    if (!cls.StartsWith("System.Runtime.ExceptionServices") &&
+                        !cls.StartsWith("System.Runtime.CompilerServices"))
+                    {
+                        if (String.IsNullOrEmpty(file))
+                            file = "filename unknown";
+
+                        stackTrace.Add(new StackTraceElement(cls, method, file, line));
+                    }
                 }
             }
+
             throwable.SetStackTrace(stackTrace.ToArray());
 
             if (exception.InnerException != null)
@@ -162,7 +164,7 @@ namespace CrashlyticsKit
             if (exception == null)
                 return;
 
-            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception stack trace", exception.StackTrace);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception stack trace", exception.StackTrace ?? string.Empty);
             Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception message", exception.Message);
             Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception", exception.GetType().FullName);
 
