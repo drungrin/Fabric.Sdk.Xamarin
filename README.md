@@ -32,7 +32,7 @@ On iOS, Crashlytics shouldn't be used with Answers. Crashlytics includes Answers
 Ensure that in your AndroidManifest.xml file in the AS project you have the same package name, version number and version code (build number) as your Xamarin Studio / Visual Studio project. 
 
 ### Updating Crashlytics Build ID
-In order to automate the process Crashlytics has a plugin for Android Studio (“AS”) that creates a UUID for a version.& build number when you make the project. Since there is no plugin for AS, whenever we increment the build number or version number we will need to amend the same values in the dummy AS project and build it.
+In order to automate the process Crashlytics has a plugin for Android Studio (“AS”) that creates a UUID for a version.& build number when you make the project. Since there is no plugin for Xamarin, whenever we increment the build number or version number we will need to amend the same values in the dummy AS project and build it.
 
 Once the project is open in AS click the project browser on the left, under App select -> manifests -> AndroidManifest.xml. Ammend the version name and version code (Build Number) and then click the Make button (Hammer circled below).
 
