@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricSdk.Touch", "FabricSdk.Touch\FabricSdk.Touch.csproj", "{C1FD9FD1-5A2E-4C7B-95C8-0463BF597506}"
 EndProject
@@ -30,14 +30,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterCore.Droid", "TwitterCore.Droid\TwitterCore.Droid.csproj", "{2E690E9F-AF91-435E-9A10-1B2762E631DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterCore.Touch", "TwitterCore.Touch\TwitterCore.Touch.csproj", "{08F5ADDB-C9C0-4132-A710-CAED30232620}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Touch", "DigitsKit.Touch\DigitsKit.Touch.csproj", "{D854DB53-C43F-4F63-8683-ABB4B28DA370}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit", "DigitsKit\DigitsKit.csproj", "{7659F3DB-A196-43D2-B897-0ECEB935E961}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Droid", "DigitsKit.Droid\DigitsKit.Droid.csproj", "{830E413C-C426-4A06-9FB2-F8FF5D317F2E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsKit.Pcl", "DigitsKit.Pcl\DigitsKit.Pcl.csproj", "{964823A7-BE1B-4DB3-8804-5AAE669E7595}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Answers.Touch", "CrashlyticsKit.Answers.Touch\CrashlyticsKit.Answers.Touch.csproj", "{1587379F-4BE6-4651-BD52-5AF818C2EC74}"
 EndProject
@@ -132,30 +124,6 @@ Global
 		{08F5ADDB-C9C0-4132-A710-CAED30232620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F5ADDB-C9C0-4132-A710-CAED30232620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08F5ADDB-C9C0-4132-A710-CAED30232620}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D854DB53-C43F-4F63-8683-ABB4B28DA370}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7659F3DB-A196-43D2-B897-0ECEB935E961}.Release|Any CPU.Build.0 = Release|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{830E413C-C426-4A06-9FB2-F8FF5D317F2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{964823A7-BE1B-4DB3-8804-5AAE669E7595}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.AppStore|Any CPU.Build.0 = Release|Any CPU
 		{1587379F-4BE6-4651-BD52-5AF818C2EC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -165,5 +133,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0C26E66-CDC9-4A79-B889-86C4AC08C164}
 	EndGlobalSection
 EndGlobal
