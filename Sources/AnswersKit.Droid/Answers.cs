@@ -218,12 +218,7 @@ namespace AnswersKit
             {
                 if (_initialized) return;
 
-                var native = (Bindings.AnswersKit.Answers)answers.ToNative();
-
-                Bindings.FabricSdk.Fabric.With(new Bindings.FabricSdk.Fabric.Builder(context)
-                    .Kits(native)
-                    .Debuggable(Fabric.Instance.Debug)
-                    .Build());
+                Fabric.Instance.Kits.Add(answers);
 
                 _initialized = true;
             }
