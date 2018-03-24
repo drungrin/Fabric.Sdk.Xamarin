@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Fabric</id>
-    <version>1.2</version>
+    <version>1.5.0</version>
     <title>Fabric</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
@@ -15,21 +15,15 @@
   </metadata>
   <files>
     <!-- PCL -->
-    <file src="Sources/FabricSdk/bin/Release/FabricSdk.dll"
-          target="lib/portable-net45+win8+wpa81+wp8/FabricSdk.dll" />    
-    <file src="Sources/FabricSdk.Pcl/bin/Release/FabricSdk.Platform.dll"
-          target="lib/portable-net45+win8+wpa81+wp8/FabricSdk.Platform.dll" />    
+    <file src="Sources/FabricSdk.Pcl/bin/Release/netstandard1.0/FabricSdk.dll"
+          target="lib/netstandard1.0/FabricSdk.dll" />    
     <!-- Xamarin.Android -->
-    <file src="Sources/FabricSdk/bin/Release/FabricSdk.dll"
-          target="lib/MonoAndroid10/FabricSdk.dll" />
-    <file src="Sources/FabricSdk.Droid/bin/Release/FabricSdk.Platform.dll"
-      target="lib/MonoAndroid10/FabricSdk.Platform.dll" />
+    <file src="Sources/FabricSdk.Droid/bin/Release/FabricSdk.dll"
+      target="lib/MonoAndroid10/FabricSdk.dll" />
     
     <!-- Xamarin.iOS -->
-    <file src="Sources/FabricSdk/bin/Release/FabricSdk.dll"
-          target="lib/Xamarin.iOS10/FabricSdk.dll" />
-    <file src="Sources/FabricSdk.Touch/bin/Release/FabricSdk.Platform.dll"
-      target="lib/Xamarin.iOS10/FabricSdk.Platform.dll" />
+    <file src="Sources/FabricSdk.Touch/bin/Release/FabricSdk.dll"
+      target="lib/Xamarin.iOS10/FabricSdk.dll" />
 
   </files>
 </package>

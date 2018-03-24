@@ -7,8 +7,8 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>Crashlytics.Answers.Touch</RootNamespace>
-    <AssemblyName>AnswersKit.Platform</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>AnswersKit</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,18 +52,11 @@
       <Project>{A2E3193C-E2D9-48B4-8062-0AC5BD13D7A7}</Project>
       <Name>CrashlyticsKit.Touch</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnswersKit\AnswersKit.csproj">
-      <Project>{B2D1B367-2FEF-4B8E-9DA7-BC858A24A206}</Project>
-      <Name>AnswersKit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FabricSdk\FabricSdk.csproj">
-      <Project>{BB4053FC-3695-490A-83E8-631F0BE6B5EE}</Project>
-      <Name>FabricSdk</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FabricSdk.Touch\FabricSdk.Touch.csproj">
       <Project>{C1FD9FD1-5A2E-4C7B-95C8-0463BF597506}</Project>
       <Name>FabricSdk.Touch</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\AnswersKit.Shared\AnswersKit.Shared.projitems" Label="Shared" Condition="Exists('..\AnswersKit.Shared\AnswersKit.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

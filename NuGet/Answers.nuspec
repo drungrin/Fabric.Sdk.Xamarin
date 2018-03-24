@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Answers</id>
-    <version>1.2</version>
+    <version>1.5.0</version>
     <title>Answers</title>
     <authors>Michel Moreira</authors>
     <projectUrl>https://github.com/drungrin/Fabric.Sdk.Xamarin</projectUrl>
@@ -13,26 +13,20 @@
     <summary>Finally, mobile app analytics you don’t need to analyze.</summary>
     <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, answers</tags>
     <dependencies>
-      <dependency id="Fabric" version="1.2" />
+      <dependency id="Fabric" version="1.5.0" />
     </dependencies>
   </metadata>
   <files>
     <!-- PCL -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
-          target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Pcl/bin/Release/AnswersKit.Platform.dll"
-          target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.Platform.dll" />
+    <file src="Sources/AnswersKit.Pcl/bin/Release/netstandard1.0/AnswersKit.dll"
+          target="lib/netstandard1.0/AnswersKit.dll" />
 
     <!-- Xamarin.Android -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+    <file src="Sources/AnswersKit.Droid/bin/Release/AnswersKit.dll"
           target="lib/MonoAndroid10/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Droid/bin/Release/AnswersKit.Platform.dll"
-          target="lib/MonoAndroid10/AnswersKit.Platform.dll" />
 
     <!-- Xamarin.iOS -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+    <file src="Sources/AnswersKit.Touch/bin/Release/AnswersKit.dll"
           target="lib/Xamarin.iOS10/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Touch/bin/Release/AnswersKit.Platform.dll"
-          target="lib/Xamarin.iOS10/AnswersKit.Platform.dll" />
   </files>
 </package>
