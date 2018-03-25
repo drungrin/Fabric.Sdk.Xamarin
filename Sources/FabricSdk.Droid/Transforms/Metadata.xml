@@ -23,6 +23,7 @@
 	<attr path="/api/package[@name='io.fabric.sdk.android.services.common']/class[@name='SafeToast']/method[@name='makeText' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.CharSequence'] and parameter[3][@type='int']]" name="name">makeTextNative</attr>
 	<!-- Change Parameter Types -->
 	<attr path="/api/package[@name='io.fabric.sdk.android']/class[@name='Kit']/method[@name='compareTo']/parameter[@type='io.fabric.sdk.android.Kit']" name="type">java.lang.Object</attr>
+	<attr path="/api/package[@name='io.fabric.sdk.android']/class[@name='InitializationTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]/parameter[1]" name="type">java.lang.Object...</attr>
 	<!-- Removals -->
 	<remove-node path="//*[@deprecated='deprecated']" />
 	<remove-node path="/api/package[@name='io.fabric.sdk.android.services.concurrency']/interface[@name='DependsOn']" />

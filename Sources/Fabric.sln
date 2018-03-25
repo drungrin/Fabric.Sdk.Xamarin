@@ -7,15 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricSdk.Touch", "FabricSd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricSdk.Droid", "FabricSdk.Droid\FabricSdk.Droid.csproj", "{8FA30B29-B1D2-42F9-A226-0701F61FC037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricSdk.Pcl", "FabricSdk.Pcl\FabricSdk.Pcl.csproj", "{1D9C8AE4-2AE4-4276-AEB2-5A8363FFD8D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabricSdk.Pcl", "FabricSdk.Pcl\FabricSdk.Pcl.csproj", "{1D9C8AE4-2AE4-4276-AEB2-5A8363FFD8D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnswersKit.Pcl", "AnswersKit.Pcl\AnswersKit.Pcl.csproj", "{48B775C0-ADB4-407B-A7A3-E8A9651648CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnswersKit.Pcl", "AnswersKit.Pcl\AnswersKit.Pcl.csproj", "{48B775C0-ADB4-407B-A7A3-E8A9651648CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnswersKit.Droid", "AnswersKit.Droid\AnswersKit.Droid.csproj", "{F4E6BC88-6C89-4DBB-818F-4F93007E74E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnswersKit.Touch", "AnswersKit.Touch\AnswersKit.Touch.csproj", "{ABC80958-4060-45EC-90C2-83BCDC85C64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Pcl", "CrashlyticsKit.Pcl\CrashlyticsKit.Pcl.csproj", "{24D9125B-B978-48B3-8A76-141F1E3FDECE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrashlyticsKit.Pcl", "CrashlyticsKit.Pcl\CrashlyticsKit.Pcl.csproj", "{24D9125B-B978-48B3-8A76-141F1E3FDECE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashlyticsKit.Droid", "CrashlyticsKit.Droid\CrashlyticsKit.Droid.csproj", "{A24629AF-44AE-4337-A6E3-6929086BF613}"
 EndProject
@@ -34,6 +34,18 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CrashlyticsKit.Shared", "CrashlyticsKit.Shared\CrashlyticsKit.Shared.shproj", "{91A018A6-6F73-408F-8419-5DFE50D16A90}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AnswersKit.Shared\AnswersKit.Shared.projitems*{1587379f-4be6-4651-bd52-5af818c2ec74}*SharedItemsImports = 4
+		AnswersKit.Shared\AnswersKit.Shared.projitems*{84dac349-24e9-4c63-b447-64089398d7ac}*SharedItemsImports = 13
+		FabricSdk.Shared\FabricSdk.Shared.projitems*{8fa30b29-b1d2-42f9-a226-0701f61fc037}*SharedItemsImports = 4
+		CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems*{91a018a6-6f73-408f-8419-5dfe50d16a90}*SharedItemsImports = 13
+		CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems*{a24629af-44ae-4337-a6e3-6929086bf613}*SharedItemsImports = 4
+		CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems*{a2e3193c-e2d9-48b4-8062-0ac5bd13d7a7}*SharedItemsImports = 4
+		AnswersKit.Shared\AnswersKit.Shared.projitems*{abc80958-4060-45ec-90c2-83bcdc85c64b}*SharedItemsImports = 4
+		FabricSdk.Shared\FabricSdk.Shared.projitems*{c1fd9fd1-5a2e-4c7b-95c8-0463bf597506}*SharedItemsImports = 4
+		FabricSdk.Shared\FabricSdk.Shared.projitems*{e5d9347d-a8a4-4456-a1b7-c9edbf851469}*SharedItemsImports = 13
+		AnswersKit.Shared\AnswersKit.Shared.projitems*{f4e6bc88-6c89-4dbb-818f-4f93007e74e9}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
 		Debug|Any CPU = Debug|Any CPU

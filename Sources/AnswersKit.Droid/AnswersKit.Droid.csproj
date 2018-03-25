@@ -11,8 +11,9 @@
     <AssemblyName>AnswersKit.Platform</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <AndroidTlsProvider></AndroidTlsProvider>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <AndroidTlsProvider>
+    </AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
+    <LibraryProjectZip Include="Jars\answers-1.4.1.aar" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -59,25 +61,13 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnswersKit\AnswersKit.csproj">
-      <Project>{b2d1b367-2fef-4b8e-9da7-bc858a24a206}</Project>
-      <Name>AnswersKit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FabricSdk.Droid\FabricSdk.Droid.csproj">
       <Project>{8FA30B29-B1D2-42F9-A226-0701F61FC037}</Project>
       <Name>FabricSdk.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FabricSdk\FabricSdk.csproj">
-      <Project>{bb4053fc-3695-490a-83e8-631f0be6b5ee}</Project>
-      <Name>FabricSdk</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Jars\" />
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\answers-1.3.12.aar" />
-  </ItemGroup>
+  <ItemGroup />
+    <Import Project="..\AnswersKit.Shared\AnswersKit.Shared.projitems" Label="Shared" Condition="Exists('..\AnswersKit.Shared\AnswersKit.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

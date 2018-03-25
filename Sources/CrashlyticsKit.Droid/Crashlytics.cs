@@ -110,9 +110,9 @@ namespace CrashlyticsKit
             while (exception is AggregateException)
                 exception = exception.InnerException;
 
-            var throwable = exception as Throwable;
+            if (exception == null) return null;
 
-            if (throwable != null)
+            if (exception is Throwable throwable)
             {
                 return throwable;
             }
@@ -169,10 +169,8 @@ namespace CrashlyticsKit
             Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception", exception.GetType().FullName);
 
             var throwable = Crashlytics.ToThrowable(exception);
-
-            _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
-            Environment.Exit(10);
+            if (throwable != null)
+                _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
         }
 
         

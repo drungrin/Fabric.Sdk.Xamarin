@@ -11,8 +11,9 @@
     <AssemblyName>CrashlyticsKit.Platform</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <AndroidTlsProvider></AndroidTlsProvider>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <AndroidTlsProvider>
+    </AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,21 +59,9 @@
       <Project>{f4e6bc88-6c89-4dbb-818f-4f93007e74e9}</Project>
       <Name>AnswersKit.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnswersKit\AnswersKit.csproj">
-      <Project>{b2d1b367-2fef-4b8e-9da7-bc858a24a206}</Project>
-      <Name>AnswersKit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CrashlyticsKit\CrashlyticsKit.csproj">
-      <Project>{196ad8c6-5a66-413f-b5f7-fd8030feda84}</Project>
-      <Name>CrashlyticsKit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FabricSdk.Droid\FabricSdk.Droid.csproj">
       <Project>{8FA30B29-B1D2-42F9-A226-0701F61FC037}</Project>
       <Name>FabricSdk.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FabricSdk\FabricSdk.csproj">
-      <Project>{bb4053fc-3695-490a-83e8-631f0be6b5ee}</Project>
-      <Name>FabricSdk</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
@@ -84,12 +73,14 @@
   </Target>
   -->
   <ItemGroup>
-    <Folder Include="Jars\" />
+    <EmbeddedJar Include="Jars\crashlytics-core-2.6.1.jar" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\beta-1.2.4.jar" />
-    <EmbeddedJar Include="Jars\crashlytics-2.6.7.jar" />
-    <EmbeddedJar Include="Jars\crashlytics-core-2.3.16.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-2.9.1.jar" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\beta-1.2.7.jar" />
+  </ItemGroup>
+  <Import Project="..\CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems" Label="Shared" Condition="Exists('..\CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems')" />
   <Import Project="..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets" Condition="Exists('..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets')" />
 </Project>
