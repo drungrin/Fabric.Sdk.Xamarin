@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using AnswersKit;
 using CrashlyticsKit;
-using DigitsKit;
 using Xamarin.Forms;
 
 namespace FormsSample
@@ -33,22 +32,6 @@ namespace FormsSample
                 { "Length", 350 }
             });
 
-            var digitsButton = new Button
-            {
-                Text = "Digits Auth"
-            };
-            digitsButton.Clicked += (sender, e) => Digits.Instance.Authenticate((session, code) =>
-            {
-                if (session == null)
-                {
-                    MainPage.DisplayAlert("Error", $"Error authenticating. ErrorCode: {code}", "OK");
-                }
-                else
-                {
-                    MainPage.DisplayAlert("Authenticated", $"UserId: {session.UserId}, PhoneNumber: {session.PhoneNumber}", "OK");
-                }
-            });
-
 
             // The root page of your application
             MainPage = new ContentPage
@@ -60,7 +43,6 @@ namespace FormsSample
                         triggerKeyMetricButton,
                         forceCrashButton,
                         forceManagedCrashButton,
-                        digitsButton
                     }
                 }
             };

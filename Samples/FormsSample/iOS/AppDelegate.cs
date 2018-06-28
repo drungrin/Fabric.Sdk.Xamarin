@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using CrashlyticsKit;
-using DigitsKit;
 using FabricSdk;
 using Foundation;
 using UIKit;
@@ -18,7 +17,6 @@ namespace FormsSample.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Crashlytics.Instance.Initialize();
-            Digits.Instance.Initialize(TwitterKey, TwitterSecret);
             Fabric.Instance.Debug = true;
             Fabric.Instance.Initialize();
 
