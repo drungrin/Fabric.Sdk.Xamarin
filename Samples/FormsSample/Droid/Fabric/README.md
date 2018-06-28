@@ -1,7 +1,7 @@
 Setup
 ==========
 
-#### 1. Add **Fabric** folder to the Android project
+#### 1. Add **Fabric** folder to the Android project with **generate.sh** script and **fabric.properties** file
 
 #### 2. Update **Farbic/fabric.properties** file with your API Secret and Key
 
