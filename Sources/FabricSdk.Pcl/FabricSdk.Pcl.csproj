@@ -6,5 +6,8 @@
     <AssemblyName>FabricSdk</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
   <Import Project="..\FabricSdk.Shared\FabricSdk.Shared.projitems" Label="Shared" Condition="Exists('..\FabricSdk.Shared\FabricSdk.Shared.projitems')" />
 </Project>

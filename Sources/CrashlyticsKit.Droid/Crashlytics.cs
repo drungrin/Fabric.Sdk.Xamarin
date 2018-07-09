@@ -29,13 +29,22 @@ namespace CrashlyticsKit
             Bindings.CrashlyticsKit.Crashlytics.Instance.Crash();
         }
 
-        public void RecordException(Exception exception)
+        public static void NonFatalException(Exception exception)
         {
             Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", exception.StackTrace ?? string.Empty);
             Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", exception.Message ?? string.Empty);
             Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception", exception.GetType().FullName);
 
             Bindings.CrashlyticsKit.Crashlytics.LogException(ToThrowable(exception));
+
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception stack trace", string.Empty);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception message", string.Empty);
+            Bindings.CrashlyticsKit.Crashlytics.SetString("non-fatal exception", string.Empty);
+        }
+
+        public void RecordException(Exception exception)
+        {
+            NonFatalException(exception);
         }
 
         public ICrashlytics SetStringValue(string key, string value)
@@ -172,8 +181,7 @@ namespace CrashlyticsKit
             if (throwable != null)
                 _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
         }
-
-        
+                
         public static void Initialize(this ICrashlytics crashlytics)
         {
             if (_initialized) return;
@@ -203,7 +211,7 @@ namespace CrashlyticsKit
 
             AndroidEnvironment.UnhandledExceptionRaiser += (s, a) => UncaughtException(a.Exception);
             AppDomain.CurrentDomain.UnhandledException += (s, a) => UncaughtException(a.ExceptionObject);
-            TaskScheduler.UnobservedTaskException += (s, a) => UncaughtException(a.Exception);
+            TaskScheduler.UnobservedTaskException += (s, a) => Crashlytics.NonFatalException(a.Exception);
         }
     }
 

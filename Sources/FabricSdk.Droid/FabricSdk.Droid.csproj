@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FabricSdk</RootNamespace>
-    <AssemblyName>FabricSdk.Platform</AssemblyName>
+    <AssemblyName>FabricSdk</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
@@ -55,10 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
+    <Folder Include="Jars\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\fabric-1.4.2.aar" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\fabric-1.4.3.aar" />
   </ItemGroup>
   <Import Project="..\FabricSdk.Shared\FabricSdk.Shared.projitems" Label="Shared" Condition="Exists('..\FabricSdk.Shared\FabricSdk.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />

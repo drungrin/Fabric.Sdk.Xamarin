@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AnswersKit</RootNamespace>
-    <AssemblyName>AnswersKit.Platform</AssemblyName>
+    <AssemblyName>AnswersKit</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\answers-1.4.1.aar" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +66,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Jars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\answers-1.4.2.aar" />
+  </ItemGroup>
     <Import Project="..\AnswersKit.Shared\AnswersKit.Shared.projitems" Label="Shared" Condition="Exists('..\AnswersKit.Shared\AnswersKit.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

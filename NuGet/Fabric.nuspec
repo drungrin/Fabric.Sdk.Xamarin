@@ -16,7 +16,8 @@
   <files>
     <!-- PCL -->
     <file src="Sources/FabricSdk.Pcl/bin/Release/netstandard1.0/FabricSdk.dll"
-          target="lib/netstandard1.0/FabricSdk.dll" />    
+          target="lib/netstandard1.0/FabricSdk.dll" />   
+           
     <!-- Xamarin.Android -->
     <file src="Sources/FabricSdk.Droid/bin/Release/FabricSdk.dll"
       target="lib/MonoAndroid10/FabricSdk.dll" />

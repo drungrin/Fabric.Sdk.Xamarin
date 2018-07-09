@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrashlyticsKit</RootNamespace>
-    <AssemblyName>CrashlyticsKit.Platform</AssemblyName>
+    <AssemblyName>CrashlyticsKit</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
@@ -73,13 +73,9 @@
   </Target>
   -->
   <ItemGroup>
-    <EmbeddedJar Include="Jars\crashlytics-core-2.6.1.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedJar Include="Jars\crashlytics-2.9.1.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedJar Include="Jars\beta-1.2.7.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-2.9.4.jar" />
+    <EmbeddedJar Include="Jars\crashlytics-core-2.6.3.jar" />
+    <EmbeddedJar Include="Jars\beta-1.2.9.jar" />
   </ItemGroup>
   <Import Project="..\CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems" Label="Shared" Condition="Exists('..\CrashlyticsKit.Shared\CrashlyticsKit.Shared.projitems')" />
   <Import Project="..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets" Condition="Exists('..\..\Samples\FormsSample\packages\Xamarin.Android.Bindings.Generators.1.6.1.19\build\MonoAndroid\Xamarin.Android.Bindings.Generators.targets')" />
