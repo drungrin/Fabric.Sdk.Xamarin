@@ -1,3 +1,5 @@
+# Fabric is deprecated and will be available until March 31, 2020. This project is also deprecated.
+
 # Fabric.Sdk.Xamarin
 
 - Answers
