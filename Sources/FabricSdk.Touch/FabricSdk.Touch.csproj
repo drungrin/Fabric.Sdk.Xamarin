@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>

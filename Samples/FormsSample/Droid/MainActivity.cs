@@ -9,7 +9,6 @@ using Android.Widget;
 using Android.OS;
 using CrashlyticsKit;
 using FabricSdk;
-using DigitsKit;
 
 namespace FormsSample.Droid
 {
@@ -27,7 +26,6 @@ namespace FormsSample.Droid
             base.OnCreate(bundle);
 
             Crashlytics.Instance.Initialize();
-            Digits.Instance.Initialize(TwitterKey, TwitterSecret);
             Fabric.Instance.Debug = true;
             Fabric.Instance.Initialize(this);
 
